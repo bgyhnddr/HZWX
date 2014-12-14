@@ -1,0 +1,571 @@
+div.process div.bar {
+    border: #ccc 1px solid;
+    padding: 1px;
+    background: #fff;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+div.process div.current {
+    height: 1px;
+    width: 0%;
+    background: #B979C2;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+a:link {
+    color: #53575E;
+}
+
+/*设置所有连接的颜色*/
+a:visited {
+    color: #ccc;
+}
+
+/*设置访问过的连接的颜色*/
+a:hover {
+    color: #999;
+}
+
+/*设置鼠标经过连接的颜色*/
+a:active {
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+/*设置鼠标点下连接的颜色*/
+
+.gray {
+    text-align: left;
+    color: #808080;
+    font-size: 10pt;
+    font-weight: normal;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.floatLeft {
+    float: left;
+}
+
+#afui div.inputbutton {
+    position: absolute;
+    right: 0;
+    margin-bottom: 4px;
+    margin-right: 12px;
+}
+
+    #afui div.inputbutton a.button {
+        border-radius: 16px;
+        padding: 8px;
+        margin-top: 0;
+        height: 32px;
+        width: 32px;
+    }
+
+
+    #afui div.inputbutton a:before {
+        left: 0;
+        top: 0;
+    }
+
+
+#afui ul div.libutton {
+    top: 50%;
+}
+
+
+#afui ul.checkboxradio > li.checkbox:before {
+    background-color: #fafafa;
+    border: 1px solid #cacece;
+    border-radius: 3px;
+    display: block;
+    position: relative;
+    width: 1.3em;
+    height: 1.3em;
+    content: " ";
+    float: left;
+    margin-right: 4px;
+}
+
+#afui ul.checkboxradio > li.checkbox.on:before {
+    content: '\00a0\2714';
+    padding: 0px;
+    display: inline-block;
+    background: #33B5E5;
+}
+
+#afui ul.checkboxradio > li.radio:before {
+    background-color: #fafafa;
+    border: 1px solid #cacece;
+    border-radius: 50px;
+    display: block;
+    position: relative;
+    top: -2px;
+    width: 1.3em;
+    height: 1.3em;
+    content: '';
+    float: left;
+    margin-right: 4px;
+}
+
+#afui ul > li {
+    overflow: auto;
+}
+#afui ul > li.selected {
+    background-color: #89B5EE;
+}
+
+#afui ul.checkboxradio > li.radio.on:before {
+    background-color: #000000;
+}
+
+#afui ul.checkboxradio > li > a:after {
+    content: "";
+}
+
+#afui input[type="checkbox"] + label.floatleftcheck {
+    float: left;
+    right: -25px;
+}
+
+#afui div.loadingdiv {
+    position: absolute;
+    top: 35%;
+    display: block;
+}
+
+#afui .backButton {
+    background: rgba(249,249,249,1);
+    color: #fff;
+    display: block;
+    position: absolute;
+    line-height: 44px;
+    left: 25px;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    padding: 0;
+    text-shadow: none;
+    background-color: transparent;
+    border: none;
+    border-color: transparent;
+    height: 44px;
+    top: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding-left: 0;
+    text-align: center;
+    /*width:50px;*/
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+    #afui .backButton::before {
+        z-index: -1;
+        font-size: 22px;
+        position: absolute;
+        top: 10px;
+        left: -20px;
+        text-align: center;
+        border-radius: 0;
+        border: none;
+        border-color: transparent;
+        box-shadow: none;
+        -webkit-transform: none;
+        transform: none;
+        font-family: 'chevron';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        content: "\f054";
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+        background-color: transparent;
+    }
+
+#afui.bb .backButton::after {
+    z-index: -1;
+    font-size: 24px;
+    content: ' ';
+    position: absolute;
+    font-weight: bold;
+    background-color: transparent;
+    left: 55px;
+    height: 48px;
+    top: -5px;
+    width: 2px;
+    background: #0aa9dc;
+    margin: auto;
+    text-align: center;
+    border-radius: 0;
+    border: none;
+    border-color: transparent;
+    box-shadow: none;
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+}
+
+#afui .panel > .afScrollPanel > div.list-div > .list {
+    margin: 0px -10px;
+}
+
+#afui .list > li > a.after:after {
+    font-family: 'IcoMoon';
+    font-size: 1.5em;
+}
+
+#afui .list > li > a.home.after:after {
+    content: "\5a";
+}
+
+#afui .list > li > a.pencil.after:after {
+    content: "\5b";
+}
+
+#afui .list > li > a.picture.after:after {
+    content: "\5c";
+}
+
+#afui .list > li > a.camera.after:after {
+    content: "\5d";
+}
+
+#afui .list > li > a.headset.after:after {
+    content: "\5e";
+}
+
+#afui .list > li > a.paper.after:after {
+    content: "\5f";
+}
+
+#afui .list > li > a.folder.after:after {
+    content: "\60";
+}
+
+#afui .list > li > a.stack.after:after {
+    content: "\61";
+}
+
+#afui .list > li > a.tag.after:after {
+    content: "\62";
+}
+
+#afui .list > li > a.basket.after:after {
+    content: "\63";
+}
+
+#afui .list > li > a.phone.after:after {
+    content: "\64";
+}
+
+#afui .list > li > a.mail.after:after {
+    content: "\65";
+}
+
+#afui .list > li > a.location.after:after {
+    content: "\66";
+}
+
+#afui .list > li > a.clock.after:after {
+    content: "\67";
+}
+
+#afui .list > li > a.calendar.after:after {
+    content: "\68";
+}
+
+#afui .list > li > a.message.after:after {
+    content: "\69";
+}
+
+#afui .list > li > a.chat.after:after {
+    content: "\6a";
+}
+
+#afui .list > li > a.user.after:after {
+    content: "\6b";
+}
+
+#afui .list > li > a.loading.after:after {
+    content: "\6c";
+}
+
+#afui .list > li > a.refresh.after:after {
+    content: "\6d";
+}
+
+#afui .list > li > a.magnifier.after:after {
+    content: "\6e";
+}
+
+#afui .list > li > a.key.after:after {
+    content: "\6f";
+}
+
+#afui .list > li > a.settings.after:after {
+    content: "\70";
+}
+
+#afui .list > li > a.graph.after:after {
+    content: "\71";
+}
+
+#afui .list > li > a.trash.after:after {
+    content: "\72";
+}
+
+#afui .list > li > a.download.after:after {
+    content: "\73";
+}
+
+#afui .list > li > a.upload.after:after {
+    content: "\74";
+}
+
+#afui .list > li > a.star.after:after {
+    content: "\75";
+}
+
+#afui .list > li > a.heart.after:after {
+    content: "\76";
+}
+
+#afui .list > li > a.warning.after:after {
+    content: "\77";
+}
+
+#afui .list > li > a.add.after:after {
+    content: "\78";
+}
+
+#afui .list > li > a.remove.after:after {
+    content: "\79";
+}
+
+#afui .list > li > a.question.after:after {
+    content: "\7a";
+}
+
+#afui .list > li > a.info.after:after {
+    content: "\7b";
+}
+
+#afui .list > li > a.error.after:after {
+    content: "\7c";
+}
+
+#afui .list > li > a.check.after:after {
+    content: "\7d";
+}
+
+#afui .list > li > a.minimize.after:after {
+    content: "\7e";
+}
+
+#afui .list > li > a.close.after:after {
+    content: "\e000";
+}
+
+#afui .list > li > a.up.after:after {
+    content: "\e001";
+}
+
+#afui .list > li > a.right.after:after {
+    content: "\e002";
+}
+
+#afui .list > li > a.down.after:after {
+    content: "\e003";
+}
+
+#afui .list > li > a.left.after:after {
+    content: "\e004";
+}
+
+#afui .list > li > a.html5.after:after {
+    content: "\e005";
+}
+
+#afui .list > li > a.css.after:after {
+    content: "\e006";
+}
+
+#afui .list > li > a.js.after:after {
+    content: "\e007";
+}
+
+#afui .list > li > a.lamp.after:after {
+    content: "\e008";
+}
+
+#afui .list > li > a.tools.after:after {
+    content: "\e009";
+}
+
+#afui .list > li > a.new.after:after {
+    content: "\e00a";
+}
+
+#afui .list > li > a.wifi.after:after {
+    content: "\e00b";
+}
+
+#afui .list > li > a.mic.after:after {
+    content: "\e00c";
+}
+
+#afui .list > li > a.database.after:after {
+    content: "\e00d";
+}
+
+#afui .list > li > a.bug.after:after {
+    content: "\e00e";
+}
+
+#afui .list > li > a.busy.after:after {
+    content: "\e00f";
+}
+
+#afui .list > li > a.target.after:after {
+    content: "\e010";
+}
+
+#afui .list > li > a.tv.after:after {
+    content: "\e011";
+}
+
+#afui .list > li > a.cloud.after:after {
+    content: "\e012";
+}
+
+#afui .list > li > a.pin.after:after {
+    content: "\e013";
+}
+
+#afui .list > li > a.none.after:after {
+    content: "";
+}
+
+#afui div.autoLabelInput:before {
+    content: attr(data-name);
+}
+/* add by cham at 2014.04.18 */
+#afui .list li {
+    padding: 10px 20px 10px 10px;
+}
+
+    #afui .list li.checkbox {
+        padding-bottom: 15px;
+        padding-right: 42px;
+    }
+
+        #afui .list li.checkbox div.inputbutton a {
+            padding: 0;
+        }
+
+#afui ul.list li a p {
+    padding-right: 20px;
+}
+
+#afui .list > li > a {
+    margin: -5px -20px -5px -10px;
+    padding: 5px 20px 5px 10px;
+}
+
+#afui h2 {
+    margin-bottom: 0;
+}
+
+#afui p {
+    margin: 2px;
+}
+
+.icon.rightNormal:after {
+    content: "\f054";
+}
+
+#afui .list li.checkbox div.libutton a:after {
+    position: absolute;
+    right: 8px;
+    font-family: 'chevron';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    content: "\f054";
+    top: 50%;
+    margin-top: -0.5em;
+    color: inherit;
+}
+
+#afui .input-group input:not([type="submit"]):not([type="button"]):last-child, #afui .input-group textarea:last-child, #afui .input-group select:last-child {
+    border-bottom: 1px solid #ccc;
+}
+
+#afui .panel .input-group {
+    margin-top: 5px;
+}
+
+#afui input.list-search {
+    margin-top: 3px;
+    padding-left: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+    #afui input.list-search + a.icon.magnifier {
+        position: absolute;
+        left: 9px;
+        top: 13px;
+        margin-top: 3px;
+    }
+
+#afui .list a .af-badge {
+    right: 22px;
+}
+
+#afui label {
+    width: auto;
+}
+
+    #afui label + select, #afui label + input[type="radio"], #afui label + input[type="checkbox"] label + textarea, #afui label + input[type="text"], #afui label + input[type=search], #afui label + input[type="password"], #afui label + input[type="datetime"], #afui label + input[type="datetime-local"], #afui label + input[type="date"], #afui label + input[type="month"], #afui label + input[type="time"], #afui label + input[type="week"], #afui label + input[type="number"], #afui label + input[type="email"], #afui label + input[type="url"], #afui label + input[type="tel"], #afui label + input[type="color"], #afui label + textarea {
+        width: 100%;
+    }
+
+#afui #afui textarea, #afui input[type="text"], #afui input[type="password"], #afui input[type="datetime"], #afui input[type="datetime-local"], #afui input[type="date"], #afui input[type="month"], #afui input[type="time"], #afui input[type="week"], #afui input[type="number"], #afui input[type="email"], #afui input[type="url"], #afui input[type="tel"], #afui input[type="color"] {
+    height: 20px;
+    padding-top: 15px;
+}
+
+#afui label {
+    padding: 6px 3px;
+}
+
+#afui .input-group {
+    padding: 6px;
+}
+
+#afui input.toggle + label {
+    float: right;
+    left: 0;
+}
+
+#afui div.div-search {
+    position: relative;
+    border-radius: 20px;
+}

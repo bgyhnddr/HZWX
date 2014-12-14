@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>WeixinJSBridge</title>
+    <link href="themes/default/css/icons.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="themes/default/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="themes/default/css/appframework.css" />
+    <link rel="stylesheet" type="text/css" href="themes/default/css/lists.css" />
+    <link rel="stylesheet" type="text/css" href="themes/default/css/forms.css" />
+    <link rel="stylesheet" type="text/css" href="themes/default/css/buttons.css" />
+    <link rel="stylesheet" type="text/css" href="themes/default/css/badges.css" />
+    <link rel="stylesheet" type="text/css" href="themes/default/css/grid.css" />
+    <link rel="stylesheet" type="text/css" href="themes/default/css/android.css" />
+    <link rel="stylesheet" type="text/css" href="themes/default/css/win8.css" />
+    <link rel="stylesheet" type="text/css" href="themes/default/css/bb.css" />
+    <link rel="stylesheet" type="text/css" href="themes/default/css/ios.css" />
+    <link rel="stylesheet" type="text/css" href="themes/default/css/ios7.css" />
+    <link rel="stylesheet" type="text/css" href="themes/default/css/tizen.css" />
+    <link rel="stylesheet" type="text/css" href="themes/default/css/af.actionsheet.css" />
+    <link rel="stylesheet" type="text/css" href="themes/default/css/af.popup.css" />
+    <link rel="stylesheet" type="text/css" href="themes/default/css/af.scroller.css" />
+    <link rel="stylesheet" type="text/css" href="themes/default/css/af.selectBox.css" />
+    <!--<link href="themes/default/css/af.ui.css" rel="stylesheet" type="text/css">-->
+    <link href="themes/default/css/bb.css" rel="stylesheet" type="text/css">
+    <link href="Sleep.css" rel="stylesheet" />
+    <script type="text/javascript" charset="utf-8" src="inc/js/core/appframework.js"></script>
+    <!--<script src="inc/js/core/appframework.ui.min.js"></script>-->
+    <script type="text/javascript" charset="utf-8" src="inc/js/plugins/jqmobi/af.actionsheet.js"></script>
+    <script type="text/javascript" charset="utf-8" src="inc/js/plugins/jqmobi/af.css3animate.js"></script>
+    <script type="text/javascript" charset="utf-8" src="inc/js/plugins/jqmobi/af.passwordBox.js"></script>
+    <script type="text/javascript" charset="utf-8" src="inc/js/plugins/jqmobi/af.scroller.js"></script>
+    <script type="text/javascript" charset="utf-8" src="inc/js/plugins/jqmobi/af.selectBox.js"></script>
+    <script type="text/javascript" charset="utf-8" src="inc/js/plugins/jqmobi/af.touchEvents.js"></script>
+    <script type="text/javascript" charset="utf-8" src="inc/js/plugins/jqmobi/af.touchLayer.js"></script>
+    <script type="text/javascript" charset="utf-8" src="inc/js/plugins/jqmobi/af.popup.js"></script>
+    <script type="text/javascript" charset="utf-8" src="inc/js/core/appframework.ui.js"></script>
+    <!-- <script type="text/javascript" charset="utf-8" src="./ui/transitions/all.js"></script> -->
+    <script type="text/javascript" charset="utf-8" src="inc/js/core/transitions/fade.js"></script>
+    <script type="text/javascript" charset="utf-8" src="inc/js/core/transitions/flip.js"></script>
+    <script type="text/javascript" charset="utf-8" src="inc/js/core/transitions/pop.js"></script>
+    <script type="text/javascript" charset="utf-8" src="inc/js/core/transitions/slide.js"></script>
+    <script type="text/javascript" charset="utf-8" src="inc/js/core/transitions/slideDown.js"></script>
+    <script type="text/javascript" charset="utf-8" src="inc/js/core/transitions/slideUp.js"></script>
+    <script type="text/javascript" charset="utf-8" src="inc/js/plugins/jqmobi/af.slidemenu.js"></script>
+    <script src="inc/js/plugins/daypilot-calendar.src.js"></script>
+    <script src="inc/js/plugins/daypilot-common.src.js"></script>
+    <script src="inc/js/plugins/daypilot-datepicker.src.js"></script>
+    <script src="inc/js/plugins/daypilot-modal.src.js"></script>
+    <script src="inc/js/plugins/daypilot-month.src.js"></script>
+    <script src="inc/js/plugins/daypilot-navigator.src.js"></script>
+    <!--<script src="inc/js/plugins/daypilot-all.min.js"></script>-->
+    <script src="WeixinJSBridge.js"></script>
+</head>
+<body>
+    <div id="afui">
+        <div id="header"></div>
+        <div id="content" style="">
+            <div class="panel" title="Index" id="page_index" selected="true" data-nav="nav_main" data-footer="footer_index" data-header="header_index">
+                <div class="container" style="width: 100%; text-align: center;" data-appbuilder-object="container" data-position="static">
+                    <ul class="list">
+                        <li>
+                            <h2 class="icon star big">
+                                imagePreview
+                            </h2>
+                            <p>
+                                <a id=imagePreview class="button">图片预览</a>
+                                <textarea readonly="readonly" id="imagePreviewPath"></textarea>
+                            </p>
+                            <p>
+                                magePreview是微信客户端给内置浏览器增加的一个Javascript Interface，通过调用这个API，可以调起微信客户端提供的大图片查看组件。
+                            </p>
+                        </li>
+                        <li>
+                            <h2 class="icon star big">
+                                getNetworkType
+                            </h2>
+                            <p>
+                                <a id="getNetworkType" class="button">获取用户网络状态</a>
+                                <textarea readonly="readonly" id="networkType"></textarea>
+                            </p>
+                            <p>
+                                getNetworkType获取用户网络状态
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <header id="header_index" data-appbuilder-object="header">
+            <h1 class="">
+                JS接口
+            </h1>
+        </header>
+        <footer id="footer_index" data-appbuilder-object="footer">
+            <a href="#page_index" class="icon settings pressed">JS接口</a>
+        </footer>
+    </div>
+</body>
+</html>

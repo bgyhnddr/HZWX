@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.Security;
@@ -38,4 +41,29 @@ public class WXCheck
             return false;
         }  
 	}
+
+    #region 获取微信凭证
+    static public string GetAccessToken(string password)
+    {
+        var content = string.Empty;
+        if (password == ConfigurationManager.AppSettings["password"].ToString())
+        {
+            var appid = ConfigurationManager.AppSettings["appid"].ToString();
+            var secret = ConfigurationManager.AppSettings["secret"].ToString();
+            var getAccessTokenUrl = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={0}&secret={1}";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format(getAccessTokenUrl, appid, secret));
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            var instream = response.GetResponseStream();
+            var sr = new StreamReader(instream, Encoding.UTF8);
+            //返回结果网页（html）代码
+            content = sr.ReadToEnd();
+        }
+        else
+        {
+            content = "{\"access_token\":\"密码错误,禁止获取token\"}";
+        }
+        return content;
+    }
+    #endregion
 }
