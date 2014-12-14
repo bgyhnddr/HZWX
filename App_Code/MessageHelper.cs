@@ -48,11 +48,9 @@ public class MessageHelper
         XmlNode EventKey = xmldoc.SelectSingleNode("/xml/EventKey");
         XmlNode ToUserName = xmldoc.SelectSingleNode("/xml/ToUserName");
         XmlNode FromUserName = xmldoc.SelectSingleNode("/xml/FromUserName");
-        if (Event != null)
+        switch(Event.InnerText)
         {
-            //菜单单击事件
-            if (Event.InnerText.Equals("CLICK"))
-            {
+            case "CLICK":
                 if (EventKey.InnerText.Equals("click_one"))//click_one
                 {
                     responseContent = string.Format(ReplyType.Message_Text,
@@ -86,7 +84,17 @@ public class MessageHelper
                          "http://www.soso.com/jieshao.jpg",
                          "http://www.soso.com/"));
                 }
-            }
+                break;
+            case "subscribe":
+                responseContent = string.Format(ReplyType.Message_News_Main,
+                        FromUserName.InnerText,
+                        ToUserName.InnerText,
+                        DateTime.Now.Ticks,
+                        "1",
+                         string.Format(ReplyType.Message_News_Item, "内部点餐", "提供公司内部的点餐服务",
+                         "http://112.124.112.166/weixintest/WeixinWeb/themes/default/images/hashiqi.jpg",
+                         "http://112.124.112.166/Ordering/"));
+                break;
         }
         return responseContent;
     }
