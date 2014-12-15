@@ -42,4 +42,6 @@
             alert("菜单格式错误");
         }
     });
+
+    $("#loadPage").load("LoadPage.html");
 });
