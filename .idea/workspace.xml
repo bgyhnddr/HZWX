@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5e4952f0-f171-477c-b30b-7a2ee2f300b9" name="Default" comment="">
+      <change type="DELETED" beforePath="G:\Github\HZWX\App_Code\Request.cs" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Interface/CreateMenu.ashx" afterPath="$PROJECT_DIR$/Interface/CreateMenu.ashx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Interface/GetAccessToken.ashx" afterPath="$PROJECT_DIR$/Interface/GetAccessToken.ashx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App_Code/LOG.cs" afterPath="$PROJECT_DIR$/App_Code/LOG.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App_Code/MessageHelper.cs" afterPath="$PROJECT_DIR$/App_Code/MessageHelper.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App_Code/ReplyType.cs" afterPath="$PROJECT_DIR$/App_Code/ReplyType.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App_Code/WXCheck.cs" afterPath="$PROJECT_DIR$/App_Code/WXCheck.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WXHandler.ashx" afterPath="$PROJECT_DIR$/WXHandler.ashx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web.config" afterPath="$PROJECT_DIR$/Web.config" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WeixinWeb/inc/js/plugins/jqmobi/af.scroller.js" afterPath="$PROJECT_DIR$/WeixinWeb/inc/js/plugins/jqmobi/af.scroller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WeixinWeb/inc/js/plugins/jqmobi/af.touchLayer.js" afterPath="$PROJECT_DIR$/WeixinWeb/inc/js/plugins/jqmobi/af.touchLayer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WeixinWeb/inc/js/core/appframework.js" afterPath="$PROJECT_DIR$/WeixinWeb/inc/js/core/appframework.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fuwuqi.txt" afterPath="$PROJECT_DIR$/fuwuqi.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website.publishproj" afterPath="$PROJECT_DIR$/website.publishproj" />
+    </list>
+    <ignored path="HZWX.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="HZWX" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Game/HZGift/inc/js/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2109">
+              <caret line="0" column="15" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
+              <folding>
+                <element signature="e#806#1096#0" expanded="false" />
+                <element signature="e#1133#1394#0" expanded="false" />
+                <element signature="e#3272#4167#0" expanded="false" />
+                <element signature="e#4202#4667#0" expanded="false" />
+                <element signature="e#4694#4702#0" expanded="false" />
+                <element signature="e#4740#4874#0" expanded="false" />
+                <element signature="e#4915#4959#0" expanded="false" />
+                <marker date="1418977863986" expanded="true" signature="388:506" placeholder="{...}" />
+                <marker date="1418977863986" expanded="true" signature="693:1069" placeholder="{&quot;type&quot;: &quot;post&quot;...}" />
+                <marker date="1418977863986" expanded="true" signature="781:795" placeholder="{...}" />
+                <marker date="1418977863986" expanded="true" signature="847:991" placeholder="{...}" />
+                <marker date="1418977863986" expanded="true" signature="917:964" placeholder="{...}" />
+                <marker date="1418977863986" expanded="true" signature="1017:1043" placeholder="{...}" />
+                <marker date="1418977863986" expanded="true" signature="2807:2934" placeholder="{&quot;subscribe&quot;: true...}" />
+                <marker date="1418977863986" expanded="true" signature="2897:3022" placeholder="{...}" />
+                <marker date="1418977863986" expanded="true" signature="2921:2976" placeholder="{...}" />
+                <marker date="1418977863986" expanded="true" signature="3085:3139" placeholder="{...}" />
+                <marker date="1418977863986" expanded="true" signature="3128:3130" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kendo.datetimepicker.js" pinned="false" current-in-tab="true">
+        <entry file="file://F:/360Downloads/04519telerik.kendoui.professional.2014.3.1215.commercial/src/src/kendo.datetimepicker.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.15555556" vertical-offset="3135" max-vertical-offset="13965">
+              <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kendo.datepicker.js" pinned="false" current-in-tab="false">
+        <entry file="file://F:/360Downloads/04519telerik.kendoui.professional.2014.3.1215.commercial/src/src/kendo.datepicker.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.620689" vertical-offset="1972" max-vertical-offset="12749">
+              <caret line="127" column="39" selection-start-line="127" selection-start-column="39" selection-end-line="127" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Game/HZGift/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="589">
+              <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/WeixinWeb/core/ionic/js/test.js" />
+        <option value="$PROJECT_DIR$/WeixinWeb/Test.html" />
+        <option value="$PROJECT_DIR$/Game/HZGift/index.html" />
+        <option value="$PROJECT_DIR$/Game/HZGift/inc/js/index.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="1" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HZWX" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HZWX" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HZWX" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HZWX" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HZWX" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WeixinWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HZWX" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HZWX" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WeixinWeb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="inc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HZWX" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HZWX" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Interface" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="options.lastSelected" value="JavaScript.Libraries" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FullScreen" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Github\HZWX\WeixinWeb\core\ionic" />
+      <recent name="G:\Github\HZWX\WeixinWeb\core\ionic\JS" />
+      <recent name="G:\Github\HZWX\WeixinWeb\core\ionic\css" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5e4952f0-f171-477c-b30b-7a2ee2f300b9" name="Default" comment="" />
+      <created>1418703972300</created>
+      <option name="number" value="Default" />
+      <updated>1418703972300</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24973656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14702703" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="HZWX" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="HZWX" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+    </PATH>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Game/HZGift/inc/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3705">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#806#1096#0" expanded="false" />
+            <element signature="e#1133#1394#0" expanded="false" />
+            <element signature="e#3272#4167#0" expanded="false" />
+            <element signature="e#4202#4667#0" expanded="false" />
+            <element signature="e#4694#4702#0" expanded="false" />
+            <element signature="e#4740#4874#0" expanded="false" />
+            <element signature="e#4915#4959#0" expanded="false" />
+            <marker date="1418977863986" expanded="true" signature="388:506" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="693:1069" placeholder="{&quot;type&quot;: &quot;post&quot;...}" />
+            <marker date="1418977863986" expanded="true" signature="781:795" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="847:991" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="917:964" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="1017:1043" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="2807:2934" placeholder="{&quot;subscribe&quot;: true...}" />
+            <marker date="1418977863986" expanded="true" signature="2897:3022" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="2921:2976" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="3085:3139" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="3128:3130" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Game/HZGift/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="589">
+          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WeixinWeb/Test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="488" max-vertical-offset="2983">
+          <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Game/HZGift/inc/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3553">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#806#1096#0" expanded="false" />
+            <element signature="e#1133#1394#0" expanded="false" />
+            <element signature="e#3272#4167#0" expanded="false" />
+            <element signature="e#4202#4667#0" expanded="false" />
+            <element signature="e#4694#4702#0" expanded="false" />
+            <element signature="e#4740#4874#0" expanded="false" />
+            <element signature="e#4915#4959#0" expanded="false" />
+            <marker date="1418977863986" expanded="true" signature="388:506" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="693:1069" placeholder="{&quot;type&quot;: &quot;post&quot;...}" />
+            <marker date="1418977863986" expanded="true" signature="781:795" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="847:991" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="917:964" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="1017:1043" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="2807:2934" placeholder="{&quot;subscribe&quot;: true...}" />
+            <marker date="1418977863986" expanded="true" signature="2897:3022" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="2921:2976" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="3085:3139" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="3128:3130" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WeixinWeb/Test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2983">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WeixinWeb/core/ionic/js/ionic-angular.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="218044">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WeixinWeb/core/ionic/css/ionic.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="133361">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WeixinWeb/core/ionic/js/angular-ui-router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="80408">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WeixinWeb/WeixinJSBridge.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.0886767" vertical-offset="798" max-vertical-offset="2090">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WeixinWeb/LoadPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="897">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/360Downloads/install.plist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.69899666" vertical-offset="0" max-vertical-offset="1045">
+          <caret line="33" column="18" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WeixinWeb/Test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15995397" vertical-offset="488" max-vertical-offset="2983">
+          <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Game/HZGift/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="589">
+          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Game/HZGift/core/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Game/HZGift/inc/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1387">
+          <caret line="0" column="15" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
+          <folding>
+            <element signature="e#806#1096#0" expanded="false" />
+            <element signature="e#1133#1394#0" expanded="false" />
+            <element signature="e#3272#4167#0" expanded="false" />
+            <element signature="e#4202#4667#0" expanded="false" />
+            <element signature="e#4694#4702#0" expanded="false" />
+            <element signature="e#4740#4874#0" expanded="false" />
+            <element signature="e#4915#4959#0" expanded="false" />
+            <marker date="1418977863986" expanded="true" signature="388:506" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="693:1069" placeholder="{&quot;type&quot;: &quot;post&quot;...}" />
+            <marker date="1418977863986" expanded="true" signature="781:795" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="847:991" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="917:964" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="1017:1043" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="2807:2934" placeholder="{&quot;subscribe&quot;: true...}" />
+            <marker date="1418977863986" expanded="true" signature="2897:3022" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="2921:2976" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="3085:3139" placeholder="{...}" />
+            <marker date="1418977863986" expanded="true" signature="3128:3130" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/360Downloads/04519telerik.kendoui.professional.2014.3.1215.commercial/src/src/kendo.datepicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.620689" vertical-offset="1972" max-vertical-offset="12749">
+          <caret line="127" column="39" selection-start-line="127" selection-start-column="39" selection-end-line="127" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/360Downloads/04519telerik.kendoui.professional.2014.3.1215.commercial/src/src/kendo.datetimepicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15555556" vertical-offset="3135" max-vertical-offset="13965">
+          <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

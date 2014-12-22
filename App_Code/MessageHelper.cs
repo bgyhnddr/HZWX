@@ -40,6 +40,7 @@ public class MessageHelper
         return responseContent;
     }
 
+
     //事件
     public string EventHandle(XmlDocument xmldoc)
     {
@@ -51,50 +52,30 @@ public class MessageHelper
         switch(Event.InnerText)
         {
             case "CLICK":
-                if (EventKey.InnerText.Equals("click_one"))//click_one
+                switch(EventKey.InnerText)
                 {
-                    responseContent = string.Format(ReplyType.Message_Text,
-                        FromUserName.InnerText,
-                        ToUserName.InnerText,
-                        DateTime.Now.Ticks,
-                        "你点击的是click_one");
-                }
-                else if (EventKey.InnerText.Equals("click_two"))//click_two
-                {
-                    responseContent = string.Format(ReplyType.Message_News_Main,
-                        FromUserName.InnerText,
-                        ToUserName.InnerText,
-                        DateTime.Now.Ticks,
-                        "2",
-                         string.Format(ReplyType.Message_News_Item, "我要寄件", "",
-                         "http://www.soso.com/orderPlace.jpg",
-                         "http://www.soso.com/") +
-                         string.Format(ReplyType.Message_News_Item, "订单管理", "",
-                         "http://www.soso.com/orderManage.jpg",
-                         "http://www.soso.com/"));
-                }
-                else if (EventKey.InnerText.Equals("click_three"))//click_three
-                {
-                    responseContent = string.Format(ReplyType.Message_News_Main,
-                        FromUserName.InnerText,
-                        ToUserName.InnerText,
-                        DateTime.Now.Ticks,
-                        "1",
-                         string.Format(ReplyType.Message_News_Item, "标题", "摘要",
-                         "http://www.soso.com/jieshao.jpg",
-                         "http://www.soso.com/"));
+                    case "HZGift":
+                        responseContent = GameHelper.GetReply(xmldoc);
+                        break;
+
                 }
                 break;
             case "subscribe":
-                responseContent = string.Format(ReplyType.Message_News_Main,
-                        FromUserName.InnerText,
-                        ToUserName.InnerText,
-                        DateTime.Now.Ticks,
-                        "1",
-                         string.Format(ReplyType.Message_News_Item, "内部点餐", "提供公司内部的点餐服务",
-                         "http://112.124.112.166/weixintest/WeixinWeb/themes/default/images/hashiqi.jpg",
-                         "http://112.124.112.166/Ordering/"));
+                responseContent = SubscribeHandle.GetSubscribeResopnse(xmldoc);
                 break;
+            case "unsubscribe":
+                responseContent = SubscribeHandle.GetUnSubscribeResopnse(xmldoc);
+                break;
+
+            //if (EventKey.InnerText.Equals("click_one"))//click_one
+            //{
+            //    responseContent = string.Format(ReplyType.Message_Text,
+            //        FromUserName.InnerText,
+            //        ToUserName.InnerText,
+            //        DateTime.Now.Ticks,
+            //        "你点击的是click_one");
+            //}
+
         }
         return responseContent;
     }

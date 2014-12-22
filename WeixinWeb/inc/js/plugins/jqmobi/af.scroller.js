@@ -785,7 +785,7 @@
             this.logPos(this.el.scrollLeft, this.el.scrollTop);
         };
 
-        //JS scroller
+        //js scroller
         jsScroller.prototype.defaultProperties = function () {
             this.boolScrollLock = false;
             this.currentScrollingObject = null;

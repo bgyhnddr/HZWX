@@ -1848,7 +1848,7 @@ if (!window.af || typeof(af) !== "function") {
                                     error = true;
                             }
                             catch (e) {
-                                error = "·þÎñÎÞÓ¦´ð";
+                                error = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½";
                             }
                             if (error){
                                 settings.error.call(context, xhr, "parsererror", error);
@@ -2815,7 +2815,7 @@ if (!window.af || typeof(af) !== "function") {
         var contexts = [];
         var params = [];
         /**
-         * This adds a command to execute in the JS stack, but is faster then setTimeout
+         * This adds a command to execute in the js stack, but is faster then setTimeout
            ```
            $.asap(function,context,args)
            ```

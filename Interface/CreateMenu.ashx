@@ -9,7 +9,7 @@ using System.Text;
 public class CreateMenu : IHttpHandler {
     
     public void ProcessRequest (HttpContext context) {
-        var responseContent = Request.CreateMenu(context);
+        var responseContent = WXRequest.CreateMenu(context);
         context.Response.Write(responseContent);
         context.Response.End();
     }

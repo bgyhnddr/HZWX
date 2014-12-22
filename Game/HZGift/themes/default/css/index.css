@@ -1,0 +1,100 @@
+﻿body {
+    margin: 0;
+    background: #333;
+}
+
+div.info {
+    margin: 0px auto;
+    max-width: 30em;
+    width: 100%;
+    height: 5em;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+
+div.gift {
+    margin: 0px auto;
+    max-width: 30em;
+    width: 100%;
+    background: url(../images/gbg.jpg) no-repeat top;
+    background-size: 100%;
+    background-position-y: top;
+    position: relative;
+}
+
+div.info .button {
+    margin: 10px auto auto 0;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    border: none;
+}
+
+#snow {
+    position: absolute;
+    top: 0;
+}
+
+#subscribe {
+    line-height:1.5;
+    background:none;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    margin: 10px auto auto 0;
+    display: none;
+}
+
+#send {
+    line-height:1.5;
+    background:none;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    margin: 10px auto auto 0;
+}
+
+div.info label {
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.popup_box {
+    -webkit-animation: giftframe .3s; /* Safari and Chrome */
+}
+
+@-webkit-keyframes giftframe /* Opera */
+{
+    0% {
+        -webkit-transform: scale(0);
+    }
+
+    70% {
+        -webkit-transform: scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
+
+@-webkit-keyframes delaygiftframe /* Opera */
+{
+    0% {
+        -webkit-transform: scale(0);
+    }
+    80%
+    {
+        -webkit-transform: scale(0);
+    }
+    95% {
+        -webkit-transform: scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
+
+.popup_box.delay {
+    -webkit-animation: delaygiftframe 1.5s; /* Safari and Chrome */
+}

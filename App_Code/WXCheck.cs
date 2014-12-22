@@ -1,6 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
+using System.Data.OleDb;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -48,6 +54,20 @@ public class WXCheck
         var content = string.Empty;
         if (password == ConfigurationManager.AppSettings["password"].ToString())
         {
+            content = "{\"access_token\":\"" + GetAccessTokenString() + "\"}";
+        }
+        else
+        {
+            content = "{\"access_token\":\"密码错误,禁止获取token\"}";
+        }
+        return content;
+    }
+
+    static public string GetAccessTokenString()
+    {
+        var token = LOG.GetSavedAccessToken();
+        if (string.IsNullOrWhiteSpace(token))
+        {
             var appid = ConfigurationManager.AppSettings["appid"].ToString();
             var secret = ConfigurationManager.AppSettings["secret"].ToString();
             var getAccessTokenUrl = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={0}&secret={1}";
@@ -57,13 +77,12 @@ public class WXCheck
             var instream = response.GetResponseStream();
             var sr = new StreamReader(instream, Encoding.UTF8);
             //返回结果网页（html）代码
-            content = sr.ReadToEnd();
+            var content = sr.ReadToEnd();
+            LOG.SaveAccessToken(content);
+            var o = JsonConvert.DeserializeObject<JObject>(content);
+            token = o["access_token"].ToString();
         }
-        else
-        {
-            content = "{\"access_token\":\"密码错误,禁止获取token\"}";
-        }
-        return content;
+        return token;
     }
     #endregion
 }

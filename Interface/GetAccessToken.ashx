@@ -6,7 +6,6 @@ using System.Web;
 public class GetAccessToken : IHttpHandler {
     
     public void ProcessRequest (HttpContext context) {
-
         var password = context.Request.Params["password"];
         var responseContent = WXCheck.GetAccessToken(password);
         context.Response.Write(responseContent);

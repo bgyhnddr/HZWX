@@ -21,6 +21,11 @@ menu:
           "type": "view",
           "name": "WeixinJSBridge",
           "url": "http://112.124.112.166/weixintest/WeixinWeb/WeixinJSBridge.html"
+        },
+        {
+          "type": "click",
+          "name": "³é½±»î¶¯",
+          "key": "HZGift"
         }
       ]
     }

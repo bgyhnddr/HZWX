@@ -9,18 +9,38 @@ using System.Web;
 /// <summary>
 /// Request 的摘要说明
 /// </summary>
-public class Request
+public class WXRequest
 {
-	public Request()
+    public WXRequest()
 	{
 	}
     public static string CreateMenu(HttpContext context)
     {
-        var token = context.Request.Params["token"];
-        var menu = context.Request.Params["menu"];
+        var requestUrl = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + 
+            LOG.GetSavedAccessToken();
+        return SendRequest(requestUrl, context.Request.Params["menu"]);
+    }
 
-        var data = Encoding.UTF8.GetBytes(menu);
-        string posturl = string.Format("https://api.weixin.qq.com/cgi-bin/menu/create?access_token={0}",token);
+
+    public static string CustomSend(string content)
+    {
+        var requestUrl = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" +
+            LOG.GetSavedAccessToken();
+        return SendRequest(requestUrl, content);
+    }
+
+    public static string GetUserInfo(string openid)
+    {
+        var requestUrl = "https://api.weixin.qq.com/cgi-bin/user/info?access_token={0}&openid={1}&lang=zh_CN";
+        return SendRequest(string.Format(requestUrl, openid, LOG.GetSavedAccessToken()));
+        //{"errcode":48001,"errmsg":"api unauthorized"}
+        //{"errcode":40013,"errmsg":"invalid appid"}
+    }
+
+    public static string SendRequest(string url, string postString = "")
+    {
+        var data = Encoding.UTF8.GetBytes(postString);
+        string posturl = url;
         var request = (HttpWebRequest)WebRequest.Create(posturl);
         CookieContainer cookieContainer = new CookieContainer();
         request.CookieContainer = cookieContainer;

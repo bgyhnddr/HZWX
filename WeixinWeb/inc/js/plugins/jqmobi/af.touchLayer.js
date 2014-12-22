@@ -1,7 +1,7 @@
 //TouchLayer contributed by Carlos Ouro @ Badoo
 //un-authoritive layer between touches and actions on the DOM
 //(un-authoritive: listeners do not require useCapture)
-//handles overlooking JS and native scrolling, panning,
+//handles overlooking js and native scrolling, panning,
 //no delay on click, edit mode focus, preventing defaults, resizing content,
 //enter/exit edit mode (keyboard on screen), prevent clicks on momentum, etc
 //It can be used independently in other apps but it is required by jqUi

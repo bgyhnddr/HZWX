@@ -64,4 +64,16 @@ public class ReplyType
                             </item>";
         }
     }
+
+    /// <summary>
+    /// 图文消息项
+    /// </summary>
+    public static string Message_Custom_Send_Text
+    {
+        get
+        {
+            return "{\"touser\":\"{0}\",\"msgtype\":\"text\",\"text\":{\"content\":\"{1}\"}}";
+        }
+        
+    }
 }
