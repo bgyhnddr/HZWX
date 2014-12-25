@@ -1,10 +1,9 @@
 ﻿$(function () {
     HZGift.getOpenId(function (openid) {
-        HZGift.openid = openid;
-        HZGift.refresh();
+        HZGift.refresh(function () {
+            HZGift.listenSendAppMessage();
+        });
     });
-
-
 
 
     HZGift.layout();
@@ -20,11 +19,23 @@ var HZGift = {
     openid: "",
     promoteId: "",
     userInfo: undefined,
+    infoDiv: '<div class="info popup_box delay"/>',
     refresh: function (callback) {
+        $("div.info").remove();
+
+        $("div.santaGift").remove();
+        $("#presentBox").remove();
+
         HZGift.getUserInfo(HZGift.openid, function (data) {
             if (data.length > 0) {
                 HZGift.userInfo = data[0];
-                HZGift.buildSubscribeUser();
+               
+                if (HZGift.userInfo.subscribe === true) {
+                    HZGift.buildSubscribeUser();
+                }
+                else {
+                    HZGift.buildNotSubscribeUser();
+                }
             }
             else {
                 HZGift.userInfo = undefined;
@@ -58,25 +69,73 @@ var HZGift = {
         }
     },
     getOpenId: function (callback) {
-        if ($.isFunction(callback)) {
-            callback($.getUrlParam("openid"));
+        var openid = $.getCookie("openid");
+        if (openid) {
+            HZGift.openid = openid;
+            $.setCookie("openid", HZGift.openid, 30);
+            if ($.isFunction(callback)) {
+                callback();
+            }
         }
-
+        else {
+            var paramCallback = function () {
+                HZGift.openid = $.getUrlParam("openid");
+                $.setCookie("openid", HZGift.openid, 30);
+                if ($.isFunction(callback)) {
+                    callback();
+                }
+            };
+            var code = $.getUrlParam("code");
+            if (code) {
+                $.ajax({
+                    type: "post",
+                    url: "../../Interface/GetopenidBycode.ashx",
+                    dataType: "json",
+                    data: {
+                        code: $.getUrlParam("code")
+                    },
+                    success: function (result) {
+                        if (result.data) {
+                            HZGift.openid = result.data;
+                            $.setCookie("openid", HZGift.openid, 30);
+                            if ($.isFunction(callback)) {
+                                callback();
+                            }
+                        }
+                        else
+                        {
+                            paramCallback();
+                        }
+                    },
+                    error: function (a, b, c) {
+                        alert(a + b + c);
+                        paramCallback();
+                    }
+                });
+            }
+            else
+            {
+                paramCallback();
+            }
+        }
     },
     getPromoteId: function () {
-        return $.getUrlParam("promoteid");
+        return $.getUrlParam("promoteId");
     },
     listenSendAppMessage: function () {
+        var ext = "";
+        if (HZGift.userInfo) {
+            ext = "?promoteId=" + HZGift.userInfo.id;
+        }
         var sendAppMessageOpts = {
-            "appid": HZGift.openid,
+            //"appid": "",
             "img_url": window.location.origin + "/weixintest/Game/HZGift/themes/default/images/ChristmasTitle.jpg",
             "img_width": "200",
             "img_height": "200",
-            "link": window.location.origin + window.location.pathname + "?promoteid=" + HZGift.openid,
+            "link": window.location.origin + "/weixintest/Interface/Promote.ashx" + ext,
             "desc": "通过连接进入抽奖，朋友与您均获得抽奖机会",
             "title": "好友推荐"
         };
-
         var sendAppMessageCallback = function (re) {
             alert(JSON.stringify(re) + "@" + sendAppMessageOpts.link);
         };
@@ -84,14 +143,14 @@ var HZGift = {
     },
     getUserInfo: function (openid, callback) {
         if (openid) {
+            var promoteId = HZGift.getPromoteId();
             $.ajax({
                 type: "post",
                 url: "../../Interface/GetUserInfo.ashx",
                 dataType: "json",
                 data: {
                     openid: openid,
-                    promoteId: HZGift.getPromoteId(),
-                    subscribe: true
+                    promoteId: promoteId
                 },
                 success: function (result) {
                     if ($.isFunction(callback)) {
@@ -106,31 +165,34 @@ var HZGift = {
                 }
             });
         }
-        else
-        {
+        else {
             if ($.isFunction(callback)) {
                 callback([]);
             }
         }
     },
     buildLotteryObj: function () {
-        var button = $("#lottery");
-        if (button.length > 0) {
-            button.remove();
-        }
-        button = $('<button id="lottery" class="large red button">开始抽奖</button>').prependTo($("div.info"));
-        button.click(function (e) {
-            $(e.currentTarget).attr("disabled", "disabled");
-            $(e.currentTarget).text("等待...");
-            HZGift.lottery(function (data) {
-                alert(data);
-                HZGift.refresh();
+        var infoDiv = $(HZGift.infoDiv);
+
+        button = $('<button class="large red button">开始抽奖</button>').prependTo(infoDiv);
+        button.bind("touchstart", function (e) {
+            $(e.currentTarget).prop("disabled", true);
+            HZGift.lottery("", function (data) {
+                if (!data) {
+                    $(e.currentTarget).text("点击礼物袋");
+                    HZGift.buildGift();
+                }
+                else {
+                    alert(data);
+                    $(e.currentTarget).prop("disabled", false);
+                    $(e.currentTarget).text("开始抽奖");
+                }
             });
         });
 
         var label = $("#lotteryCount");
         if (label.length == 0) {
-            label = $('<label id="lotteryCount"/>').appendTo($("div.info"));
+            label = $('<label id="lotteryCount"/>').appendTo(infoDiv);
         }
 
         var countNum = 0;
@@ -140,14 +202,19 @@ var HZGift = {
         }
 
         label.text("剩余次数:" + countNum);
+
+        infoDiv.append('<div id="send" class="large blue button">' +
+        '通过右上角菜单发送给朋友，朋友抽奖后，您将获取更多的抽奖机会</div>');
+        infoDiv.appendTo($("body"));
     },
-    lottery: function (callback) {
+    lottery: function (action, callback) {
         $.ajax({
             type: "post",
             url: "../../Interface/Lottery.ashx",
             dataType: "json",
             data: {
-                openid: HZGift.openid
+                openid: HZGift.openid,
+                action: action
             },
             success: function (result) {
                 if ($.isFunction(callback)) {
@@ -156,11 +223,20 @@ var HZGift = {
             },
             error: function (a, b, c) {
                 alert(a + b + c);
+                if (action == "get") {
+                    if ($.isFunction(callback)) {
+                        callback("");
+                    }
+                }
             }
         });
     },
-    getGift: function () {
-
+    getGift: function (callback) {
+        HZGift.lottery("get", function (result) {
+            if ($.isFunction(callback)) {
+                callback(result);
+            }
+        });
     },
     buildSubscribeUser: function () {
         HZGift.buildLotteryObj();
@@ -168,6 +244,91 @@ var HZGift = {
     },
     buildNotSubscribeUser: function () {
         HZGift.userInfo = undefined;
+        var infoDiv = $(HZGift.infoDiv);
+        infoDiv.append('<div id="send" class="large orangellow button">' +
+        '通过右上角查看公众号菜单关注，获取抽奖机会</div>');
+        infoDiv.appendTo($("body"));
+    },
+    buildGift: function () {
+        $("div.santaGift").remove();
+        var divSantaBottom = $('<div class="santaGift popup_box"/>');
+        var width = $("div.gift").width() / 2;
+        divSantaBottom.width(width);
+        divSantaBottom.height(width);
+        var $santaCanvas = $('<canvas width="' + width + '" height="' + width + '">浏览器不支持canvas</canvas>').appendTo(divSantaBottom);
+        var santaContext = $santaCanvas[0].getContext("2d");
+        santaContext.globalCompositeOperation = "destination-over";
+        var image = new Image();
+        image.src = "themes/default/images/santa.png";
+        image.onload = function () {
+            santaContext.drawImage(this, 0, 0, this.width, this.height, 0, 0, width, width);
+        }
+
+        var divGiftBottom = $('<div class="santaGift popup_box"/>');
+        var $giftCanvas = $('<canvas class="clickable" width="' + width + '" height="' + width + '">浏览器不支持canvas</canvas>').appendTo(divGiftBottom);
+        var giftContext = $giftCanvas[0].getContext("2d");
+        giftContext.globalCompositeOperation = "destination-over";
+        image = new Image();
+        image.src = "themes/default/images/gift.png";
+        image.onload = function () {
+            giftContext.drawImage(this, 0, 0, this.width, this.height, 0, 0, width, width);
+        }
+
+        var getting = false;
+
+        $giftCanvas.bind("touchstart", function (e) {
+            if(getting)
+            {
+                return;
+            }
+            else
+            {
+                getting = true;
+                HZGift.getGift(function (result) {
+                    if (result)
+                    {
+                        try {
+                            var num = parseInt(result);
+                            if (isNaN(num)) {
+                                alert(result);
+                                getting = false;
+                                return;
+                            }
+                            var divPresent = $('<div id="presentBox" class="santaGift popup_box clickable"/>');
+                            image = new Image();
+                            image.src = "themes/default/images/present.png";
+                            image.onload = function () {
+                                divPresent.width(this.width);
+                                divPresent.height(this.height);
+                                var $presentCanvas = $('<canvas class="clickable" width="' + this.width + '" height="' + this.height + '">浏览器不支持canvas</canvas>').appendTo(divPresent);
+                                var presentContext = $presentCanvas[0].getContext("2d");
+                                presentContext.drawImage(this, 0, 0, this.width, this.height, 0, 0, this.width, this.height);
+
+
+                                divPresent.appendTo($("div.gift"));
+                                var done = false;
+                                divPresent[0].addEventListener("touchstart", function () {
+                                    if (!done) {
+                                        done = true;
+                                        alert("你获得了" + num + "等奖");
+                                        HZGift.refresh();
+                                    }
+                                });
+                            }
+                        }
+                        catch (ex)
+                        {
+                            alert(ex.message);
+                            getting = false;
+                        }
+                    }
+                });
+            }
+        });
+
+        divSantaBottom.appendTo($("div.gift"));
+
+        divGiftBottom.appendTo($("div.gift"));
     }
 };
 
@@ -176,6 +337,27 @@ var HZGift = {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
         if (r != null) return unescape(r[2]);
-        return null;
+        return "";
+    }
+
+    $.getCookie = function (c_name) {
+        if (document.cookie.length > 0) {
+            c_start = document.cookie.indexOf(c_name + "=")
+            if (c_start != -1) {
+                c_start = c_start + c_name.length + 1
+                c_end = document.cookie.indexOf(";", c_start)
+                if (c_end == -1) c_end = document.cookie.length
+                return unescape(document.cookie.substring(c_start, c_end))
+            }
+        }
+        return ""
+    }
+
+    $.setCookie = function(c_name, value, expiredays) {
+        var exdate = new Date()
+        exdate.setDate(exdate.getDate() + expiredays)
+        document.cookie = c_name + "=" + escape(value) +
+        ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString())
     }
 })(jQuery);
+

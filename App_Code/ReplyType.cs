@@ -66,14 +66,23 @@ public class ReplyType
     }
 
     /// <summary>
-    /// 图文消息项
+    /// 文本消息项
     /// </summary>
     public static string Message_Custom_Send_Text
     {
         get
         {
-            return "{\"touser\":\"{0}\",\"msgtype\":\"text\",\"text\":{\"content\":\"{1}\"}}";
+            return "{{\"touser\":\"{0}\",\"msgtype\":\"text\",\"text\":{{\"content\":\"{1}\"}}}}";
         }
         
     }
+
+    public static string Message_Custom_Send_News
+    {
+        get
+        {
+            return "{{\"touser\":\"{0}\",\"msgtype\":\"news\",\"news\":{{\"articles\":[{{\"title\":\"{1}\",\"description\":\"{2}\",\"url\":\"{3}\",\"picurl\":\"{4}\"}}]}}}}";
+        }
+    }
+
 }

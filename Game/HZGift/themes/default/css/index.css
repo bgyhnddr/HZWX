@@ -98,3 +98,29 @@ div.info label {
 .popup_box.delay {
     -webkit-animation: delaygiftframe 1.5s; /* Safari and Chrome */
 }
+
+@-webkit-keyframes getgiftframe /* Opera */
+{
+    0% {
+        -webkit-transform: scale(1);
+    }
+    50%
+    {
+        -webkit-transform: scale(2);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
+
+.clickable:active {
+    -webkit-animation: getgiftframe 1.5s; /* Safari and Chrome */
+}
+
+
+.santaGift {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+}

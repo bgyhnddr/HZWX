@@ -28,7 +28,6 @@ public class WXHandler : IHttpHandler
                 context.Response.End();
             }
         }
-        LOG.Log(postString);
     }
 
     /// <summary>

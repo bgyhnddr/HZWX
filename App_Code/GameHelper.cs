@@ -70,34 +70,24 @@ public class GameHelper
         }
     }
 
-    public static void AddGiftChance(string openid)
+    public static void AddGiftChance(string openid, OleDbConnection conn, OleDbTransaction tran = null)
     {
-        var conn = Global.GetConnection();
-        OleDbTransaction tran = null;
-        try
+
+        string sqlstr = "UPDATE ContactList SET lotteryChance = lotteryChance+1 WHERE openid=@openid";
+        var command = new OleDbCommand(sqlstr, conn, tran);
+        command.Parameters.AddWithValue("@openid", openid);
+        if (tran != null)
         {
-            tran = conn.BeginTransaction();
-            if (GameHelper.IsInDatabase(openid, conn, tran))
-            {
-                string sqlstr = "UPDATE ContactList SET lotteryChance = lotteryChance+1 WHERE openid=@openid";
-                var command = new OleDbCommand(sqlstr, conn, tran);
-                command.Parameters.AddWithValue("@openid", openid);
-                command.ExecuteNonQuery();
-            }
-            tran.Commit();
+            command.Transaction = tran;
         }
-        catch (Exception e)
-        {
-            if (tran != null)
-            {
-                tran.Rollback();
-            }
-            Console.WriteLine(e.Message + ":" + e.StackTrace);
-        }
-        finally
-        {
-            conn.Close();
-        }
+        command.ExecuteNonQuery();
+
+        WXRequest.CustomSend(string.Format(ReplyType.Message_Custom_Send_News,
+            openid,
+            "获得抽奖机会",
+            "您介绍的好友使你获得一次抽奖机会,快来抽奖吧",
+            WXRequest.GetOAuth2URL("http://112.124.112.166/weixintest/Game/HZGift/index.html?openid=" + openid, "redict"),
+            "http://112.124.112.166/weixintest/Game/HZGift/themes/default/images/ChristmasTitle.jpg"));
     }
 
     public static bool AddGiftCount(string openid)
@@ -110,8 +100,17 @@ public class GameHelper
         {
             conn.Open();
             tran = conn.BeginTransaction();
-            if (GameHelper.IsInDatabase(openid, conn, tran))
+
+            if (table.Rows.Count > 0)
             {
+                var promote = table.Rows[0]["promoteId"].ToString();
+                if (!string.IsNullOrWhiteSpace(promote))
+                {
+                    if (int.Parse(table.Rows[0]["lotteryCount"].ToString()) == 0)
+                    {
+                        AddGiftChance(promote, conn, tran);
+                    }
+                }
                 string sqlstr = "UPDATE ContactList SET lotteryCount = lotteryCount+1 WHERE openid=@openid";
                 var command = new OleDbCommand(sqlstr, conn, tran);
                 command.Parameters.AddWithValue("@openid", openid);
@@ -137,7 +136,30 @@ public class GameHelper
 
     public static int RandomGift()
     {
-        return new Random(DateTime.Now.Millisecond).Next();
+        var random = new Random(DateTime.Now.Millisecond);
+        var num = random.Next(0, 100);
+
+        int returnNum;
+
+        if (num <= 5)
+        {
+            returnNum = 1;
+        }
+        else if(num>5&&num<=20)
+        {
+            returnNum = 2;
+        }
+        else if(num>20&&num<=50)
+        {
+            returnNum = 3;
+        }
+        else
+        {
+            returnNum = 4;
+        }
+
+
+        return returnNum;
     }
 
 
@@ -166,6 +188,8 @@ public class GameHelper
         XmlNode EventKey = xmldoc.SelectSingleNode("/xml/EventKey");
         XmlNode ToUserName = xmldoc.SelectSingleNode("/xml/ToUserName");
         XmlNode FromUserName = xmldoc.SelectSingleNode("/xml/FromUserName");
+
+
         return string.Format(ReplyType.Message_News_Main,
                             FromUserName.InnerText,
                             ToUserName.InnerText,
@@ -173,7 +197,8 @@ public class GameHelper
                             "1",
                              string.Format(ReplyType.Message_News_Item, "抽奖活动", "恭喜获得抽奖机会！",
                              "http://112.124.112.166/weixintest/Game/HZGift/themes/default/images/ChristmasTitle.jpg",
-                             "http://112.124.112.166/weixintest/Game/HZGift/index.html?openid=" + ToUserName.InnerText));
+                             WXRequest.GetOAuth2URL("http://112.124.112.166/weixintest/Game/HZGift/index.html?openid=" + FromUserName.InnerText, "redict")));
+
     }
 
     public static bool InsertUserInfo(OleDbConnection conn, string openid, bool subscribe = true, OleDbTransaction tran = null, string promoteId = "", int lotteryChance = 1, int lotteryCount = 0)
@@ -236,7 +261,9 @@ public class GameHelper
         if (!string.IsNullOrWhiteSpace(userInfo))
         {
             var userJson = JsonConvert.DeserializeObject<JObject>(userInfo);
-            bool.TryParse(userJson["subscribe"].ToString(), out subscribe);
+            var subi = 0;
+            int.TryParse(userJson["subscribe"].ToString(),out subi);
+            subscribe = subi == 1;
         }
         var userTable = GetUserInfoTable(openid);
 
@@ -254,14 +281,14 @@ public class GameHelper
             }
             else
             {
-                if(!string.IsNullOrWhiteSpace(userTable.Rows[0]["promoteId"].ToString()))
-                {
-                    proId = userTable.Rows[0]["promoteId"].ToString();
-                }
-
                 if (!string.IsNullOrWhiteSpace(userInfo))
                 {
                     SubscribeHandle.UpdateSubscribe(conn, openid, subscribe, tran);
+                }
+
+                if(string.IsNullOrWhiteSpace(userTable.Rows[0]["promoteId"].ToString()))
+                {
+                    UpdatePromoteId(conn, openid, proId, tran);
                 }
             }
             tran.Commit();
@@ -320,10 +347,10 @@ public class GameHelper
 
     public static bool UpdatePromoteId(OleDbConnection conn, string openid, string promoteId, OleDbTransaction tran = null)
     {
-        string sqlstr = "UPDATE ContactList SET promoteId = @promoteId openid=" + openid;
+        string sqlstr = "UPDATE ContactList SET promoteId = @promoteId WHERE openid=@openid";
         var command = new OleDbCommand(sqlstr, conn);
-        command.Parameters.AddWithValue("@openid", openid);
         command.Parameters.AddWithValue("@promoteId", promoteId);
+        command.Parameters.AddWithValue("@openid", openid);
         if (tran != null)
         {
             command.Transaction = tran;

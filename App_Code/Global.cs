@@ -9,14 +9,14 @@ using System.Data.OleDb;
 /// </summary>
 public class Global
 {
+    public const string OAuth2URL = "https://open.weixin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri={1}&response_type=code&scope={2}&state={3}#wechat_redirect";
+
 	public Global()
 	{
 		//
 		// TODO: 在此处添加构造函数逻辑
 		//
 	}
-
-
     public static OleDbConnection GetConnection()
     {
         return new OleDbConnection(ServerHandler.GetConnectionString("HZGift"));

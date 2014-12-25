@@ -8,7 +8,7 @@ public class GetUserInfo : IHttpHandler {
     public void ProcessRequest(HttpContext context)
     {
         var openid = context.Request.Params["openid"];
-        var promoteId = context.Request.Params["promotedId"];
+        var promoteId = context.Request.Params["promoteId"];
         var responseContent = GameHelper.GetUserInfo(openid, promoteId);
         context.Response.Write("{\"data\":" + responseContent + "}");
         context.Response.End();

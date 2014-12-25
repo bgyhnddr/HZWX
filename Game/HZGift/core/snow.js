@@ -31,7 +31,7 @@ function initImage(imagePath) {
 
 function initSnow(width, height) {
     var minRasius = 1,
-        maxRadius = 2,
+        maxRadius = 3,
         minSpeedY = 1,
         maxSpeedY = 2,
         speedX = 0.01,

@@ -74,10 +74,10 @@ public class SubscribeHandle
 
     public static bool UpdateSubscribe(OleDbConnection conn, string openid, bool subscribe, OleDbTransaction tran = null)
     {
-        string sqlstr = "UPDATE ContactList SET subscribe = @subscribe openid=" + openid;
+        string sqlstr = "UPDATE ContactList SET subscribe = @subscribe WHERE openid=@openid";
         var command = new OleDbCommand(sqlstr, conn);
-        command.Parameters.AddWithValue("@openid", openid);
         command.Parameters.AddWithValue("@subscribe", subscribe);
+        command.Parameters.AddWithValue("@openid", openid);
         if (tran != null)
         {
             command.Transaction = tran;
@@ -88,15 +88,15 @@ public class SubscribeHandle
 
     public static string GetSubscribeResopnse(XmlDocument xmldoc)
     {
-        XmlNode ToUserName = xmldoc.SelectSingleNode("/xml/ToUserName");
-        Subscribe(ToUserName.InnerText);
+        XmlNode FromUserName = xmldoc.SelectSingleNode("/xml/FromUserName");
+        Subscribe(FromUserName.InnerText);
         return GameHelper.GetReply(xmldoc);
     }
 
     public static string GetUnSubscribeResopnse(XmlDocument xmldoc)
     {
-        XmlNode ToUserName = xmldoc.SelectSingleNode("/xml/ToUserName");
-        UnSubscribe(ToUserName.InnerText);
+        XmlNode FromUserName = xmldoc.SelectSingleNode("/xml/FromUserName");
+        UnSubscribe(FromUserName.InnerText);
 
         return string.Empty;
     }
