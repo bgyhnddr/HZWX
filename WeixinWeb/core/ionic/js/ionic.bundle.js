@@ -4204,7 +4204,7 @@ var Scroller;
 
 /**
  * ionic.views.Scroll
- * A powerful scroll view with support for bouncing, pull to refresh, and paging.
+ * A powerful scroll view with support for bouncing, pull to init, and paging.
  * @param   {Object}        options options for the scroll view
  * @class A scroll view system
  * @memberof ionic.views
@@ -4446,19 +4446,19 @@ ionic.views.Scroll = ionic.views.View.inherit({
   /** Snapping height for content */
   __snapHeight: 100,
 
-  /** Height to assign to refresh area */
+  /** Height to assign to init area */
   __refreshHeight: null,
 
-  /** Whether the refresh process is enabled when the event is released now */
+  /** Whether the init process is enabled when the event is released now */
   __refreshActive: false,
 
-  /** Callback to execute on activation. This is for signalling the user about a refresh is about to happen when he release */
+  /** Callback to execute on activation. This is for signalling the user about a init is about to happen when he release */
   __refreshActivate: null,
 
-  /** Callback to execute on deactivation. This is for signalling the user about the refresh being cancelled */
+  /** Callback to execute on deactivation. This is for signalling the user about the init being cancelled */
   __refreshDeactivate: null,
 
-  /** Callback to execute to start the actual refresh. Call {@link #refreshFinish} when done */
+  /** Callback to execute to start the actual init. Call {@link #refreshFinish} when done */
   __refreshStart: null,
 
   /** Zoom level */
@@ -5254,14 +5254,14 @@ ionic.views.Scroll = ionic.views.View.inherit({
 
 
   /**
-   * Activates pull-to-refresh. A special zone on the top of the list to start a list refresh whenever
+   * Activates pull-to-init. A special zone on the top of the list to start a list init whenever
    * the user event is released during visibility of this zone. This was introduced by some apps on iOS like
    * the official Twitter client.
    *
-   * @param height {Integer} Height of pull-to-refresh zone on top of rendered list
-   * @param activateCallback {Function} Callback to execute on activation. This is for signalling the user about a refresh is about to happen when he release.
-   * @param deactivateCallback {Function} Callback to execute on deactivation. This is for signalling the user about the refresh being cancelled.
-   * @param startCallback {Function} Callback to execute to start the real async refresh action. Call {@link #finishPullToRefresh} after finish of refresh.
+   * @param height {Integer} Height of pull-to-init zone on top of rendered list
+   * @param activateCallback {Function} Callback to execute on activation. This is for signalling the user about a init is about to happen when he release.
+   * @param deactivateCallback {Function} Callback to execute on deactivation. This is for signalling the user about the init being cancelled.
+   * @param startCallback {Function} Callback to execute to start the real async init action. Call {@link #finishPullToRefresh} after finish of init.
    * @param showCallback {Function} Callback to execute when the refresher should be shown. This is for showing the refresher during a negative scrollTop.
    * @param hideCallback {Function} Callback to execute when the refresher should be hidden. This is for hiding the refresher when it's behind the nav bar.
    * @param tailCallback {Function} Callback to execute just before the refresher returns to it's original state. This is for zooming out the refresher.
@@ -5282,11 +5282,11 @@ ionic.views.Scroll = ionic.views.View.inherit({
 
 
   /**
-   * Starts pull-to-refresh manually.
+   * Starts pull-to-init manually.
    */
   triggerPullToRefresh: function() {
     // Use publish instead of scrollTo to allow scrolling to out of boundary position
-    // We don't need to normalize scrollLeft, zoomLevel, etc. here because we only y-scrolling when pull-to-refresh is enabled
+    // We don't need to normalize scrollLeft, zoomLevel, etc. here because we only y-scrolling when pull-to-init is enabled
     this.__publish(this.__scrollLeft, -this.__refreshHeight, this.__zoomLevel, true);
 
     var d = new Date();
@@ -5299,7 +5299,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
 
 
   /**
-   * Signalizes that pull-to-refresh is finished.
+   * Signalizes that pull-to-init is finished.
    */
   finishPullToRefresh: function() {
     var self = this;
@@ -5742,7 +5742,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
 
             scrollTop += (moveY / 2 * self.options.speedMultiplier);
 
-            // Support pull-to-refresh (only when only y is scrollable)
+            // Support pull-to-init (only when only y is scrollable)
             if (!self.__enableScrollX && self.__refreshHeight != null) {
 
               // hide the refresher when it's behind the header bar in case of header transparency
@@ -5891,7 +5891,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
           // Verify that we have enough velocity to start deceleration
           if (Math.abs(self.__decelerationVelocityX) > minVelocityToStartDeceleration || Math.abs(self.__decelerationVelocityY) > minVelocityToStartDeceleration) {
 
-            // Deactivate pull-to-refresh when decelerating
+            // Deactivate pull-to-init when decelerating
             if (!self.__refreshActive) {
               self.__startDeceleration(timeStamp);
             }
@@ -5914,7 +5914,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
       if (self.__refreshActive && self.__refreshStart) {
 
         // Use publish instead of scrollTo to allow scrolling to out of boundary position
-        // We don't need to normalize scrollLeft, zoomLevel, etc. here because we only y-scrolling when pull-to-refresh is enabled
+        // We don't need to normalize scrollLeft, zoomLevel, etc. here because we only y-scrolling when pull-to-init is enabled
         self.__publish(self.__scrollLeft, -self.__refreshHeight, self.__zoomLevel, true);
 
         var d = new Date();
@@ -5932,7 +5932,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
         }
         self.scrollTo(self.__scrollLeft, self.__scrollTop, true, self.__zoomLevel);
 
-        // Directly signalize deactivation (nothing todo on refresh?)
+        // Directly signalize deactivation (nothing todo on init?)
         if (self.__refreshActive) {
 
           self.__refreshActive = false;
@@ -40263,7 +40263,7 @@ function $ViewScrollProvider() {
    *
    * @description
    * When called with a jqLite element, it scrolls the element into view (after a
-   * `$timeout` so the DOM has time to refresh).
+   * `$timeout` so the DOM has time to init).
    *
    * If you prefer to rely on `$anchorScroll` to scroll the view to the anchor,
    * this can be enabled by calling {@link ui.router.state.$uiViewScrollProvider#methods_useAnchorScroll `$uiViewScrollProvider.useAnchorScroll()`}.
@@ -48725,7 +48725,7 @@ function collectionRepeatSrcDirective(ngAttrName, attrName) {
  * and so we've made it easy to toggle between the Ionic scroll implementation and
  * overflow scrolling.
  *
- * You can implement pull-to-refresh with the {@link ionic.directive:ionRefresher}
+ * You can implement pull-to-init with the {@link ionic.directive:ionRefresher}
  * directive, and infinite scrolling with the {@link ionic.directive:ionInfiniteScroll}
  * directive.
  *
@@ -51010,7 +51010,7 @@ IonicModule
  * @restrict E
  * @parent ionic.directive:ionContent, ionic.directive:ionScroll
  * @description
- * Allows you to add pull-to-refresh to a scrollView.
+ * Allows you to add pull-to-init to a scrollView.
  *
  * Place it as the first child of your {@link ionic.directive:ionContent} or
  * {@link ionic.directive:ionScroll} element.
@@ -51023,8 +51023,8 @@ IonicModule
  * ```html
  * <ion-content ng-controller="MyController">
  *   <ion-refresher
- *     pulling-text="Pull to refresh..."
- *     on-refresh="doRefresh()">
+ *     pulling-text="Pull to init..."
+ *     on-init="doRefresh()">
  *   </ion-refresher>
  *   <ion-list>
  *     <ion-item ng-repeat="item in items"></ion-item>
@@ -51048,7 +51048,7 @@ IonicModule
  * });
  * ```
  *
- * @param {expression=} on-refresh Called when the user pulls down enough and lets go
+ * @param {expression=} on-init Called when the user pulls down enough and lets go
  * of the refresher.
  * @param {expression=} on-pulling Called when the user starts to pull down
  * on the refresher.
@@ -51141,7 +51141,7 @@ IonicModule
  * @param {string=} direction Which way to scroll. 'x' or 'y' or 'xy'. Default 'y'.
  * @param {boolean=} locking Whether to lock scrolling in one direction at a time. Useful to set to false when zoomed in or scrolling in two directions. Default true.
  * @param {boolean=} paging Whether to scroll with paging.
- * @param {expression=} on-refresh Called on pull-to-refresh, triggered by an {@link ionic.directive:ionRefresher}.
+ * @param {expression=} on-init Called on pull-to-init, triggered by an {@link ionic.directive:ionRefresher}.
  * @param {expression=} on-scroll Called whenever the user scrolls.
  * @param {boolean=} scrollbar-x Whether to show the horizontal scrollbar. Default true.
  * @param {boolean=} scrollbar-y Whether to show the vertical scrollbar. Default true.

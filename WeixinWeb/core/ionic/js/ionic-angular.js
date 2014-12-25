@@ -7821,7 +7821,7 @@ function collectionRepeatSrcDirective(ngAttrName, attrName) {
  * and so we've made it easy to toggle between the Ionic scroll implementation and
  * overflow scrolling.
  *
- * You can implement pull-to-refresh with the {@link ionic.directive:ionRefresher}
+ * You can implement pull-to-init with the {@link ionic.directive:ionRefresher}
  * directive, and infinite scrolling with the {@link ionic.directive:ionInfiniteScroll}
  * directive.
  *
@@ -10106,7 +10106,7 @@ IonicModule
  * @restrict E
  * @parent ionic.directive:ionContent, ionic.directive:ionScroll
  * @description
- * Allows you to add pull-to-refresh to a scrollView.
+ * Allows you to add pull-to-init to a scrollView.
  *
  * Place it as the first child of your {@link ionic.directive:ionContent} or
  * {@link ionic.directive:ionScroll} element.
@@ -10119,8 +10119,8 @@ IonicModule
  * ```html
  * <ion-content ng-controller="MyController">
  *   <ion-refresher
- *     pulling-text="Pull to refresh..."
- *     on-refresh="doRefresh()">
+ *     pulling-text="Pull to init..."
+ *     on-init="doRefresh()">
  *   </ion-refresher>
  *   <ion-list>
  *     <ion-item ng-repeat="item in items"></ion-item>
@@ -10144,7 +10144,7 @@ IonicModule
  * });
  * ```
  *
- * @param {expression=} on-refresh Called when the user pulls down enough and lets go
+ * @param {expression=} on-init Called when the user pulls down enough and lets go
  * of the refresher.
  * @param {expression=} on-pulling Called when the user starts to pull down
  * on the refresher.
@@ -10237,7 +10237,7 @@ IonicModule
  * @param {string=} direction Which way to scroll. 'x' or 'y' or 'xy'. Default 'y'.
  * @param {boolean=} locking Whether to lock scrolling in one direction at a time. Useful to set to false when zoomed in or scrolling in two directions. Default true.
  * @param {boolean=} paging Whether to scroll with paging.
- * @param {expression=} on-refresh Called on pull-to-refresh, triggered by an {@link ionic.directive:ionRefresher}.
+ * @param {expression=} on-init Called on pull-to-init, triggered by an {@link ionic.directive:ionRefresher}.
  * @param {expression=} on-scroll Called whenever the user scrolls.
  * @param {boolean=} scrollbar-x Whether to show the horizontal scrollbar. Default true.
  * @param {boolean=} scrollbar-y Whether to show the vertical scrollbar. Default true.

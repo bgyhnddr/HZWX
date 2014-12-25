@@ -100,7 +100,7 @@
         };
         scrollerCore.prototype = {
             //core default properties
-            refresh: false,
+            init: false,
             refreshContent: "Pull to Refresh",
             refreshHangTimeout: 2000,
             refreshHeight: 60,
@@ -248,8 +248,8 @@
             },
             coreAddPullToRefresh: function (rEl) {
                 if (rEl) this.refreshElement = rEl;
-                //Add the pull to refresh text.  Not optimal but keeps from others overwriting the content and worrying about italics
-                //add the refresh div
+                //Add the pull to init text.  Not optimal but keeps from others overwriting the content and worrying about italics
+                //add the init div
                 var afEl;
                 if (this.refreshElement === null) {
                     var orginalEl = document.getElementById(this.container.id + "_pulldown");
@@ -270,7 +270,7 @@
             fireRefreshRelease: function (triggered) {
                 if (!this.refresh || !triggered) return;
                 this.setRefreshContent("Refreshing...");
-                var autoCancel = $.trigger(this, "refresh-release", [triggered]) !== false;
+                var autoCancel = $.trigger(this, "init-release", [triggered]) !== false;
                 this.preventHideRefresh = false;
                 this.refreshRunning = true;
                 if (autoCancel) {
@@ -523,7 +523,7 @@
                 }
             }
             if (this.refreshCancelCB) clearTimeout(this.refreshCancelCB);
-            //get refresh ready
+            //get init ready
             if(this.refresh)
                 this.el.addEventListener("touchend",this,false);
 
@@ -582,22 +582,22 @@
             //check for trigger
             if (this.refresh && (this.el.scrollTop < -this.refreshHeight)) {
                 this.showRefresh();
-            //check for cancel when refresh is running
+            //check for cancel when init is running
             } else if (this.refresh && this.refreshTriggered && this.refreshRunning && (this.el.scrollTop > this.refreshHeight)) {
                 this.refreshTriggered = false;
                 this.refreshRunning = false;
                 if (this.refreshCancelCB) clearTimeout(this.refreshCancelCB);
                 this.hideRefresh(false);
                 this.setRefreshContent("Pull to Refresh");
-                $.trigger(this, "refresh-cancel");
-            //check for cancel when refresh is not running
+                $.trigger(this, "init-cancel");
+            //check for cancel when init is not running
             } else if (this.refresh && this.refreshTriggered && !this.refreshRunning && (this.el.scrollTop > -this.refreshHeight)) {
                 this.refreshTriggered = false;
                 this.refreshRunning = false;
                 if (this.refreshCancelCB) clearTimeout(this.refreshCancelCB);
                 this.hideRefresh(false);
                 this.setRefreshContent("Pull to Refresh");
-                $.trigger(this, "refresh-cancel");
+                $.trigger(this, "init-cancel");
             }
 
             this.cY = newcY;
@@ -614,7 +614,7 @@
             if (!this.refreshTriggered) {
                 this.refreshTriggered = true;
                 this.setRefreshContent("Release to Refresh");
-                $.trigger(this, "refresh-trigger");
+                $.trigger(this, "init-trigger");
             }
         };
         nativeScroller.prototype.onTouchEnd = function (e) {
@@ -629,7 +629,7 @@
             if (triggered&&this.refresh) {
                 //lock in place
                 //that.refreshContainer.style.position = "";
-                //iOS has a bug that it will jump when scrolling back up, so we add a fake element while we reset the pull to refresh position
+                //iOS has a bug that it will jump when scrolling back up, so we add a fake element while we reset the pull to init position
                 //then we remove it right away
                 var tmp=$.create("<div style='height:"+this.el.clientHeight+this.refreshHeight+"px;width:1px;-webkit-transform:translated3d(-1px,0,0)'></div>");
                 $(this.el).append(tmp);
@@ -704,7 +704,7 @@
                     that.logPos(that.el.scrollLeft, 0);
                     that.refreshRunning = false;
                     that.setRefreshContent("Pull to Refresh");
-                    $.trigger(that, "refresh-finish");
+                    $.trigger(that, "init-finish");
                 }
             };
 
@@ -962,7 +962,7 @@
             this.container.scrollTop = this.container.scrollLeft = 0;
             this.currentScrollingObject = this.el;
 
-            //get refresh ready
+            //get init ready
             if (this.refresh && scrollInfo.top === 0) {
                 this.refreshContainer.style.display = "block";
                 this.refreshHeight = this.refreshContainer.firstChild.clientHeight;
@@ -1124,7 +1124,7 @@
             if (this.elementInfo.hasHorScroll) this.checkXboundary(this.lastScrollInfo);
 
 
-            //pull to refresh elastic
+            //pull to init elastic
             var positiveOverflow = this.lastScrollInfo.y > 0 && this.lastScrollInfo.deltaY > 0;
             var negativeOverflow = this.lastScrollInfo.y < -this.elementInfo.maxTop && this.lastScrollInfo.deltaY < 0;
             var overflow,pcent,baseTop;
@@ -1191,16 +1191,16 @@
             this.setVScrollBar(this.lastScrollInfo, 0, 0);
             this.setHScrollBar(this.lastScrollInfo, 0, 0);
 
-            //check refresh triggering
+            //check init triggering
             if (this.refresh && !this.preventPullToRefresh) {
                 if (!this.refreshTriggered && this.lastScrollInfo.top > this.refreshHeight) {
                     this.refreshTriggered = true;
                     this.setRefreshContent("Release to Refresh");
-                    $.trigger(this, "refresh-trigger");
+                    $.trigger(this, "init-trigger");
                 } else if (this.refreshTriggered && this.lastScrollInfo.top < this.refreshHeight) {
                     this.refreshTriggered = false;
                     this.setRefreshContent("Pull to Refresh");
-                    $.trigger(this, "refresh-cancel");
+                    $.trigger(this, "init-cancel");
                 }
             }
 
@@ -1300,7 +1300,7 @@
             if (this.preventHideRefresh) return;
             var endAnimationCb = function () {
                 that.setRefreshContent("Pull to Refresh");
-                $.trigger(that, "refresh-finish");
+                $.trigger(that, "init-finish");
             };
             this.scrollerMoveCSS({x: 0, y: 0}, HIDE_REFRESH_TIME);
             if (animate === false || !that.afEl.css3Animate) {
@@ -1376,7 +1376,7 @@
             var triggered = !this.preventPullToRefresh && (scrollInfo.top > this.refreshHeight || scrollInfo.y > this.refreshHeight);
             this.fireRefreshRelease(triggered, scrollInfo.top > 0);
 
-            //refresh hang in
+            //init hang in
             if (this.refresh && triggered) {
                 scrollInfo.y = this.refreshHeight;
                 scrollInfo.duration = HIDE_REFRESH_TIME;

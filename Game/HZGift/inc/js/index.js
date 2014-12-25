@@ -1,6 +1,6 @@
 ﻿$(function () {
     HZGift.getOpenId(function (openid) {
-        HZGift.refresh(function () {
+        HZGift.init(function () {
             HZGift.listenSendAppMessage();
         });
     });
@@ -20,16 +20,15 @@ var HZGift = {
     promoteId: "",
     userInfo: undefined,
     infoDiv: '<div class="info popup_box delay"/>',
-    refresh: function (callback) {
+    init: function (callback) {
         $("div.info").remove();
-
         $("div.santaGift").remove();
         $("#presentBox").remove();
 
         HZGift.getUserInfo(HZGift.openid, function (data) {
             if (data.length > 0) {
                 HZGift.userInfo = data[0];
-               
+
                 if (HZGift.userInfo.subscribe === true) {
                     HZGift.buildSubscribeUser();
                 }
@@ -44,6 +43,16 @@ var HZGift = {
 
             if ($.isFunction(callback)) {
                 callback();
+            }
+        });
+    },
+    update: function () {
+        HZGift.getUserInfo(HZGift.openid, function (data) {
+            if (data.length > 0) {
+                HZGift.userInfo = data[0];
+                if (HZGift.userInfo.subscribe === true) {
+                    $("div.info").children("button").prop("disabled", false).text("开始抽奖");
+                }
             }
         });
     },
@@ -102,8 +111,7 @@ var HZGift = {
                                 callback();
                             }
                         }
-                        else
-                        {
+                        else {
                             paramCallback();
                         }
                     },
@@ -113,8 +121,7 @@ var HZGift = {
                     }
                 });
             }
-            else
-            {
+            else {
                 paramCallback();
             }
         }
@@ -204,7 +211,7 @@ var HZGift = {
         label.text("剩余次数:" + countNum);
 
         infoDiv.append('<div id="send" class="large blue button">' +
-        '通过右上角菜单发送给朋友，朋友抽奖后，您将获取更多的抽奖机会</div>');
+        '通过右上角菜单发送给朋友，朋友初次抽奖后，您将获取更多的抽奖机会</div>');
         infoDiv.appendTo($("body"));
     },
     lottery: function (action, callback) {
@@ -251,6 +258,7 @@ var HZGift = {
     },
     buildGift: function () {
         $("div.santaGift").remove();
+        $("#presentBox").remove();
         var divSantaBottom = $('<div class="santaGift popup_box"/>');
         var width = $("div.gift").width() / 2;
         divSantaBottom.width(width);
@@ -265,7 +273,7 @@ var HZGift = {
         }
 
         var divGiftBottom = $('<div class="santaGift popup_box"/>');
-        var $giftCanvas = $('<canvas class="clickable" width="' + width + '" height="' + width + '">浏览器不支持canvas</canvas>').appendTo(divGiftBottom);
+        var $giftCanvas = $('<canvas width="' + width + '" height="' + width + '">浏览器不支持canvas</canvas>').appendTo(divGiftBottom);
         var giftContext = $giftCanvas[0].getContext("2d");
         giftContext.globalCompositeOperation = "destination-over";
         image = new Image();
@@ -277,52 +285,69 @@ var HZGift = {
         var getting = false;
 
         $giftCanvas.bind("touchstart", function (e) {
-            if(getting)
-            {
+            if (getting) {
                 return;
             }
-            else
-            {
+            else {
                 getting = true;
-                HZGift.getGift(function (result) {
-                    if (result)
-                    {
-                        try {
-                            var num = parseInt(result);
-                            if (isNaN(num)) {
-                                alert(result);
-                                getting = false;
-                                return;
-                            }
-                            var divPresent = $('<div id="presentBox" class="santaGift popup_box clickable"/>');
-                            image = new Image();
-                            image.src = "themes/default/images/present.png";
-                            image.onload = function () {
-                                divPresent.width(this.width);
-                                divPresent.height(this.height);
-                                var $presentCanvas = $('<canvas class="clickable" width="' + this.width + '" height="' + this.height + '">浏览器不支持canvas</canvas>').appendTo(divPresent);
-                                var presentContext = $presentCanvas[0].getContext("2d");
-                                presentContext.drawImage(this, 0, 0, this.width, this.height, 0, 0, this.width, this.height);
-
-
-                                divPresent.appendTo($("div.gift"));
-                                var done = false;
-                                divPresent[0].addEventListener("touchstart", function () {
-                                    if (!done) {
-                                        done = true;
-                                        alert("你获得了" + num + "等奖");
-                                        HZGift.refresh();
-                                    }
-                                });
-                            }
-                        }
-                        catch (ex)
-                        {
-                            alert(ex.message);
-                            getting = false;
-                        }
+                divSantaBottom[0].addEventListener("webkitAnimationEnd", function (animation) {
+                    if (animation.animationName == "remove") {
+                        animation.target.parentNode.removeChild(animation.target);
                     }
                 });
+
+                divGiftBottom[0].addEventListener("webkitAnimationEnd", function (animation) {
+                    if (animation.animationName == "remove") {
+                        animation.target.parentNode.removeChild(animation.target);
+                    }
+                    HZGift.getGift(function (result) {
+                        if (result) {
+                            try {
+                                var num = parseInt(result);
+                                if (isNaN(num)) {
+                                    alert(result);
+                                    getting = false;
+                                    return;
+                                }
+                                var divPresent = $('<div id="presentBox" class="santaGift present popup_box clickable"/>');
+                                image = new Image();
+                                image.src = "themes/default/images/present.png";
+                                image.onload = function () {
+                                    divPresent.width(this.width);
+                                    divPresent.height(this.height);
+                                    var $presentCanvas = $('<canvas width="' + this.width + '" height="' + this.height + '">浏览器不支持canvas</canvas>').appendTo(divPresent);
+                                    var presentContext = $presentCanvas[0].getContext("2d");
+                                    presentContext.drawImage(this, 0, 0, this.width, this.height, 0, 0, this.width, this.height);
+
+                                    divPresent[0].addEventListener("webkitAnimationEnd", function (animation) {
+                                        if (animation.animationName == "remove") {
+                                            animation.target.parentNode.removeChild(animation.target);
+                                            alert("恭喜获取" + num + "等奖");
+                                            HZGift.update();
+                                        }
+                                    });
+                                    divPresent.appendTo($("div.gift"));
+                                    var done = false;
+                                    divPresent[0].addEventListener("touchstart", function () {
+                                        if (!done) {
+                                            done = true;
+                                            divPresent.addClass("remove");
+                                        }
+                                    });
+                                }
+                            }
+                            catch (ex) {
+                                alert(ex.message);
+                                getting = false;
+                            }
+                        }
+                    });
+                });
+
+                divSantaBottom.addClass("remove");
+                divGiftBottom.addClass("remove");
+
+
             }
         });
 
@@ -353,7 +378,7 @@ var HZGift = {
         return ""
     }
 
-    $.setCookie = function(c_name, value, expiredays) {
+    $.setCookie = function (c_name, value, expiredays) {
         var exdate = new Date()
         exdate.setDate(exdate.getDate() + expiredays)
         document.cookie = c_name + "=" + escape(value) +

@@ -3598,7 +3598,7 @@ function $ViewScrollProvider() {
    *
    * @description
    * When called with a jqLite element, it scrolls the element into view (after a
-   * `$timeout` so the DOM has time to refresh).
+   * `$timeout` so the DOM has time to init).
    *
    * If you prefer to rely on `$anchorScroll` to scroll the view to the anchor,
    * this can be enabled by calling {@link ui.router.state.$uiViewScrollProvider#methods_useAnchorScroll `$uiViewScrollProvider.useAnchorScroll()`}.

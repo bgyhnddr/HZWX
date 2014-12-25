@@ -1254,7 +1254,7 @@
                 $.cleanUpContent(el, false, true);
                 $(el).html(content);
                 var scr=this.scrollingDivs[el.id];
-                if(scr&&scr.refresh)
+                if(scr&&scr.init)
                     scr.addPullToRefresh();
             }
             if (newDiv.getAttribute("data-title"))
@@ -1280,7 +1280,7 @@
          * @param {(string|object)} el Element to add
          * @param {string} content
          * @param {string} title
-         * @param {boolean=} refresh Enable refresh on pull
+         * @param {boolean=} refresh Enable init on pull
          * @param {function=} refreshFunc 
          * @title $.ui.addContentDiv(id, content, title);
          */
@@ -1393,7 +1393,7 @@
                 if(self.horizontalScroll)
                     $(tmp).addClass("x-scroll");
                 if (refreshFunc)
-                    $.bind(this.scrollingDivs[scrollEl.id], "refresh-release", function(trigger) {
+                    $.bind(this.scrollingDivs[scrollEl.id], "init-release", function(trigger) {
                         if (trigger) refreshFunc();
                     });
                 if(jsScroll){
@@ -1588,7 +1588,7 @@
                     loadAjax = false;
                 } else if (crcCheck.length > 0) {
                     loadAjax = false;
-                    if (anchor.getAttribute("data-refresh-ajax") === "true" || (anchor.refresh && anchor.refresh === true || this.isAjaxApp)) {
+                    if (anchor.getAttribute("data-init-ajax") === "true" || (anchor.init && anchor.init === true || this.isAjaxApp)) {
                         loadAjax = true;
                     } else {
                         target = "#" + crcCheck.get(0).id;
@@ -1597,7 +1597,7 @@
 
                     //ajax div already exists.  Let's see if we should be refreshing it.
                     loadAjax = false;
-                    if (anchor.getAttribute("data-refresh-ajax") === "true" || (anchor.refresh && anchor.refresh === true || this.isAjaxApp)) {
+                    if (anchor.getAttribute("data-init-ajax") === "true" || (anchor.init && anchor.init === true || this.isAjaxApp)) {
                         loadAjax = true;
                     } else target = "#" + urlHash;
                 }
@@ -1782,11 +1782,11 @@
 
                         var refresh = (anchor.getAttribute("data-pull-scroller") === "true") ? true : false;
                         refreshFunction = refresh ? function() {
-                            anchor.refresh = true;
+                            anchor.init = true;
                             that.loadContent(target, newTab, back, transition, anchor);
-                            anchor.refresh = false;
+                            anchor.init = false;
                         } : null;
-                        //that.addContentDiv(urlHash, xmlhttp.responseText, refresh, refreshFunction);
+                        //that.addContentDiv(urlHash, xmlhttp.responseText, init, refreshFunction);
                         var contents = $(xmlhttp.responseText);
 
                         if (contents.hasClass("panel"))
@@ -2380,7 +2380,7 @@
                         tmpscroller.enable();
                     }, 300);
                 }
-                if(tmpscroller.refresh)
+                if(tmpscroller.init)
                     tmpscroller.updateP2rHackPosition();
             }
         });

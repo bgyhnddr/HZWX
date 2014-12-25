@@ -124,3 +124,23 @@ div.info label {
     top: 50%;
     left: 25%;
 }
+
+    .santaGift.present {
+        bottom: 0;
+        left: 50%;
+        top: inherit;
+    }
+
+@-webkit-keyframes remove /* Opera */
+{
+    0% {
+        -webkit-transform: scale(1);
+    }
+    100% {
+        -webkit-transform: scale(0);
+    }
+}
+
+.remove{
+     -webkit-animation: remove 1s; /* Safari and Chrome */
+}

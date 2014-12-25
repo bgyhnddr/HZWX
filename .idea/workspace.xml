@@ -2,23 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e4952f0-f171-477c-b30b-7a2ee2f300b9" name="Default" comment="">
+      <change type="DELETED" beforePath="G:\Github\HZWX\Game\HZGift\promoteIndex .html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/HZGift/Data/Database.mdb" afterPath="$PROJECT_DIR$/Game/HZGift/Data/Database.mdb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App_Code/GameHelper.cs" afterPath="$PROJECT_DIR$/App_Code/GameHelper.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Interface/GetUserInfo.ashx" afterPath="$PROJECT_DIR$/Interface/GetUserInfo.ashx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App_Code/Global.cs" afterPath="$PROJECT_DIR$/App_Code/Global.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App_Code/ReplyType.cs" afterPath="$PROJECT_DIR$/App_Code/ReplyType.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App_Code/SubscribeHandle.cs" afterPath="$PROJECT_DIR$/App_Code/SubscribeHandle.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WXHandler.ashx" afterPath="$PROJECT_DIR$/WXHandler.ashx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App_Code/WXRequest.cs" afterPath="$PROJECT_DIR$/App_Code/WXRequest.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web.config" afterPath="$PROJECT_DIR$/Web.config" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/access_token" afterPath="$PROJECT_DIR$/access_token" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WeixinWeb/inc/js/plugins/jqmobi/af.scroller.js" afterPath="$PROJECT_DIR$/WeixinWeb/inc/js/plugins/jqmobi/af.scroller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WeixinWeb/core/ionic/js/angular-ui-router.js" afterPath="$PROJECT_DIR$/WeixinWeb/core/ionic/js/angular-ui-router.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WeixinWeb/inc/js/core/appframework.ui.js" afterPath="$PROJECT_DIR$/WeixinWeb/inc/js/core/appframework.ui.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/HZGift/themes/default/css/index.css" afterPath="$PROJECT_DIR$/Game/HZGift/themes/default/css/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/HZGift/index.html" afterPath="$PROJECT_DIR$/Game/HZGift/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/HZGift/inc/js/index.js" afterPath="$PROJECT_DIR$/Game/HZGift/inc/js/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log.txt" afterPath="$PROJECT_DIR$/log.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/HZGift/themes/default/css/playground.css" afterPath="$PROJECT_DIR$/Game/HZGift/themes/default/css/playground.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/HZGift/core/snow.js" afterPath="$PROJECT_DIR$/Game/HZGift/core/snow.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WeixinWeb/core/ionic/js/ionic-angular.js" afterPath="$PROJECT_DIR$/WeixinWeb/core/ionic/js/ionic-angular.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WeixinWeb/core/ionic/js/ionic.bundle.js" afterPath="$PROJECT_DIR$/WeixinWeb/core/ionic/js/ionic.bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WeixinWeb/core/ionic/js/ionic.js" afterPath="$PROJECT_DIR$/WeixinWeb/core/ionic/js/ionic.js" />
     </list>
     <ignored path="HZWX.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,21 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Game/HZGift/inc/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="5012" max-vertical-offset="7011">
-              <caret line="289" column="26" selection-start-line="289" selection-start-column="26" selection-end-line="289" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="snow.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Game/HZGift/core/snow.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="2527">
-              <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.16474654" vertical-offset="180" max-vertical-offset="7486">
+              <caret line="17" column="10" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -65,8 +49,8 @@
       <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Game/HZGift/themes/default/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="494" max-vertical-offset="2508">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state vertical-scroll-proportion="-30.586206" vertical-offset="1849" max-vertical-offset="2888">
+              <caret line="144" column="22" selection-start-line="144" selection-start-column="5" selection-end-line="144" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -102,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Game/HZGift/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30609897" vertical-offset="0" max-vertical-offset="869">
-              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+            <state vertical-scroll-proportion="-10.857142" vertical-offset="0" max-vertical-offset="475">
+              <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -125,7 +109,10 @@
         <option value="$PROJECT_DIR$/Game/HZGift/index.html" />
         <option value="$PROJECT_DIR$/Game/HZGift/themes/default/css/playground.css" />
         <option value="$PROJECT_DIR$/Game/HZGift/core/snow.js" />
+        <option value="$USER_HOME$/Desktop/slect/tttt.html" />
+        <option value="$PROJECT_DIR$/Game/HZGift/themes/default/css/index.css" />
         <option value="$PROJECT_DIR$/Game/HZGift/inc/js/index.js" />
+        <option value="$PROJECT_DIR$/Game/HZGift/inc/js/123.js" />
       </list>
     </option>
   </component>
@@ -391,27 +378,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14686824" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24973656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14702703" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -635,6 +622,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="218044">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -687,18 +675,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/360Downloads/04519telerik.kendoui.professional.2014.3.1215.commercial/src/src/kendo.datetimepicker.js">
+    <entry file="file://G:/项目/index.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3990" max-vertical-offset="13965">
-          <caret line="194" column="56" selection-start-line="194" selection-start-column="56" selection-end-line="194" selection-end-column="56" />
+        <state vertical-scroll-proportion="-0.24299066" vertical-offset="208" max-vertical-offset="1064">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Game/HZGift/themes/default/css/playground.css">
+    <entry file="file://$USER_HOME$/Desktop/slect/tttt.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4917" max-vertical-offset="5814">
-          <caret line="276" column="5" selection-start-line="276" selection-start-column="1" selection-end-line="276" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.20677146" vertical-offset="0" max-vertical-offset="827">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="e#218#1526#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/360Downloads/04519telerik.kendoui.professional.2014.3.1215.commercial/src/src/kendo.datetimepicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3990" max-vertical-offset="13965">
+          <caret line="194" column="56" selection-start-line="194" selection-start-column="56" selection-end-line="194" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -711,34 +709,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Game/HZGift/themes/default/css/index.css">
+    <entry file="file://$PROJECT_DIR$/Game/HZGift/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="494" max-vertical-offset="2508">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state vertical-scroll-proportion="-10.857142" vertical-offset="0" max-vertical-offset="475">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Game/HZGift/core/snow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="2527">
-          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2527">
+          <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Game/HZGift/themes/default/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-30.586206" vertical-offset="1849" max-vertical-offset="2888">
+          <caret line="144" column="22" selection-start-line="144" selection-start-column="5" selection-end-line="144" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Game/HZGift/themes/default/css/playground.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4917" max-vertical-offset="5814">
+          <caret line="276" column="5" selection-start-line="276" selection-start-column="1" selection-end-line="276" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Game/HZGift/inc/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5012" max-vertical-offset="7011">
-          <caret line="289" column="26" selection-start-line="289" selection-start-column="26" selection-end-line="289" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Game/HZGift/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30609897" vertical-offset="0" max-vertical-offset="869">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.16474654" vertical-offset="180" max-vertical-offset="7486">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="10" />
           <folding />
         </state>
       </provider>
