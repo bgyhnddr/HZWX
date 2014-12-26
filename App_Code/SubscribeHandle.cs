@@ -90,7 +90,7 @@ public class SubscribeHandle
     {
         XmlNode FromUserName = xmldoc.SelectSingleNode("/xml/FromUserName");
         Subscribe(FromUserName.InnerText);
-        return GameHelper.GetReply(xmldoc);
+        return GameHelper.GetLotteryReply(xmldoc);
     }
 
     public static string GetUnSubscribeResopnse(XmlDocument xmldoc)

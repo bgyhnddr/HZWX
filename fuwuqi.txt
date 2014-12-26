@@ -26,6 +26,11 @@ menu:
           "type": "click",
           "name": "抽奖活动",
           "key": "HZGift"
+        },
+        {
+          "type": "click",
+          "name": "我的中奖记录",
+          "key": "HZGiftList"
         }
       ]
     }

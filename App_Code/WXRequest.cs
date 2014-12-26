@@ -95,4 +95,11 @@ public class WXRequest
             return string.Empty;
         }
     }
+
+    public static string SendAll(HttpContext context)
+    {
+        var requestUrl = "https://api.weixin.qq.com/cgi-bin/message/mass/send?access_token=" +
+            WXCheck.GetAccessTokenString();
+        return SendRequest(requestUrl, context.Request.Params["content"]);
+    }
 }

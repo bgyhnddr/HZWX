@@ -27,14 +27,7 @@ public class GameHelper
 
             if (action == "get")
             {
-                if (AddGiftCount(openid))
-                {
-                    return RandomGift().ToString();
-                }
-                else
-                {
-                    return "等会再抽";
-                }
+                return AddGiftCount(openid);
             }
             else
             {
@@ -70,7 +63,7 @@ public class GameHelper
         }
     }
 
-    public static void AddGiftChance(string openid, OleDbConnection conn, OleDbTransaction tran = null)
+    public static void AddGiftChance(string openid,string oriopenid, OleDbConnection conn, OleDbTransaction tran = null)
     {
 
         string sqlstr = "UPDATE ContactList SET lotteryChance = lotteryChance+1 WHERE openid=@openid";
@@ -82,15 +75,26 @@ public class GameHelper
         }
         command.ExecuteNonQuery();
 
+        var userInfo = WXRequest.GetUserInfo(oriopenid);
+
+        var userJson = JsonConvert.DeserializeObject<JObject>(userInfo);
+
+        var name = "您介绍的好友使你获得一次抽奖机会,快来抽奖吧";
+
+        if (userJson["nickname"] != null)
+        {
+            name = "您的好友" + userJson["nickname"].ToString() + "初次抽奖令你获得额外一次抽奖机会！";
+        }
+
         WXRequest.CustomSend(string.Format(ReplyType.Message_Custom_Send_News,
             openid,
             "获得抽奖机会",
-            "您介绍的好友使你获得一次抽奖机会,快来抽奖吧",
+            name,
             WXRequest.GetOAuth2URL("http://112.124.112.166/weixintest/Game/HZGift/index.html?openid=" + openid, "redict"),
             "http://112.124.112.166/weixintest/Game/HZGift/themes/default/images/ChristmasTitle.jpg"));
     }
 
-    public static bool AddGiftCount(string openid)
+    public static string AddGiftCount(string openid)
     {
 
         var table = GameHelper.GetUserInfoTable(openid);
@@ -108,7 +112,7 @@ public class GameHelper
                 {
                     if (int.Parse(table.Rows[0]["lotteryCount"].ToString()) == 0)
                     {
-                        AddGiftChance(promote, conn, tran);
+                        AddGiftChance(promote, openid, conn, tran);
                     }
                 }
                 string sqlstr = "UPDATE ContactList SET lotteryCount = lotteryCount+1 WHERE openid=@openid";
@@ -116,8 +120,13 @@ public class GameHelper
                 command.Parameters.AddWithValue("@openid", openid);
                 command.ExecuteNonQuery();
             }
+
+            var gift = RandomGift().ToString();
+
+            InsertPresent(conn, openid, gift.ToString(), tran);
+
             tran.Commit();
-            return true;
+            return gift;
         }
         catch (Exception e)
         {
@@ -126,7 +135,7 @@ public class GameHelper
                 tran.Rollback();
             }
             Console.WriteLine(e.Message + ":" + e.StackTrace);
-            return false;
+            return "等会再抽";
         }
         finally
         {
@@ -182,10 +191,8 @@ public class GameHelper
         return IsInDatabase(GetOpenidById(id.ToString(), conn, tran), conn, tran);
     }
 
-    public static string GetReply(XmlDocument xmldoc)
+    public static string GetLotteryReply(XmlDocument xmldoc)
     {
-        XmlNode Event = xmldoc.SelectSingleNode("/xml/Event");
-        XmlNode EventKey = xmldoc.SelectSingleNode("/xml/EventKey");
         XmlNode ToUserName = xmldoc.SelectSingleNode("/xml/ToUserName");
         XmlNode FromUserName = xmldoc.SelectSingleNode("/xml/FromUserName");
 
@@ -194,11 +201,70 @@ public class GameHelper
                             FromUserName.InnerText,
                             ToUserName.InnerText,
                             DateTime.Now.Ticks,
-                            "1",
+                            "3",
                              string.Format(ReplyType.Message_News_Item, "抽奖活动", "恭喜获得抽奖机会！",
                              "http://112.124.112.166/weixintest/Game/HZGift/themes/default/images/ChristmasTitle.jpg",
-                             WXRequest.GetOAuth2URL("http://112.124.112.166/weixintest/Game/HZGift/index.html?openid=" + FromUserName.InnerText, "redict")));
+                             WXRequest.GetOAuth2URL("http://112.124.112.166/weixintest/Game/HZGift/index.html?openid=" + FromUserName.InnerText, "redict")) +
+                             string.Format(ReplyType.Message_News_Item, "内部点餐", "员工内部点餐入口。",
+                             "http://112.124.112.166/weixintest/WeixinWeb/themes/default/images/hashiqi.jpg",
+                             "http://112.124.112.166/Ordering/") +
+                             string.Format(ReplyType.Message_News_Item, "微信JS", "微信内部JS测试",
+                             "http://112.124.112.166/weixintest/Game/HZGift/themes/default/images/present.png",
+                             "http://112.124.112.166/weixintest/WeixinWeb/WeixinJSBridge.html"));
 
+    }
+
+    public static string GetGiftListReply(XmlDocument xmldoc) {
+        XmlNode ToUserName = xmldoc.SelectSingleNode("/xml/ToUserName");
+        XmlNode FromUserName = xmldoc.SelectSingleNode("/xml/FromUserName");
+
+
+        return string.Format(ReplyType.Message_Text,
+                            FromUserName.InnerText,
+                            ToUserName.InnerText,
+                            DateTime.Now.Ticks,
+                            GetGiftList(FromUserName.InnerText));
+    }
+
+    public static string GetGiftList(string openid)
+    {
+        var conn = Global.GetConnection();
+        try
+        {
+            var sql = "SELECT [gift], COUNT(gift) AS [count] FROM PresentList WHERE [openid] = @openid AND [get] = false GROUP BY [gift] ORDER BY [gift]";
+            var command = new OleDbCommand(sql, conn);
+            command.Parameters.AddWithValue("@openid", openid);
+            var adapter = new OleDbDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            var returnString = "我的中奖记录\r\n";
+            returnString += "未领奖记录:\r\n";
+            foreach (DataRow row in table.Rows)
+            {
+                returnString += row["gift"].ToString() + "等奖:" + row["count"].ToString() + "\r\n";
+            }
+
+            returnString += "已经领奖记录:\r\n";
+
+            sql = "SELECT [gift], COUNT(gift) AS [count] FROM PresentList WHERE [openid] = @openid AND [get] = true GROUP BY [gift] ORDER BY [gift]";
+            command = new OleDbCommand(sql, conn);
+            command.Parameters.AddWithValue("@openid", openid);
+            adapter = new OleDbDataAdapter(command);
+            table = new DataTable();
+            adapter.Fill(table);
+
+            foreach (DataRow row in table.Rows)
+            {
+                returnString += row["gift"].ToString() + "等奖:" + row["count"].ToString() + "\r\n";
+            }
+
+            return returnString;
+        }
+        catch (Exception ex)
+        {
+            return "有错误发生:" + ex.Message + ex.StackTrace;
+        }
     }
 
     public static bool InsertUserInfo(OleDbConnection conn, string openid, bool subscribe = true, OleDbTransaction tran = null, string promoteId = "", int lotteryChance = 1, int lotteryCount = 0)
@@ -211,6 +277,21 @@ public class GameHelper
         command.Parameters.AddWithValue("@lotteryChance", lotteryChance);
         command.Parameters.AddWithValue("@lotteryCount", lotteryCount);
         command.Parameters.AddWithValue("@promoteId", promoteId);
+        if (tran != null)
+        {
+            command.Transaction = tran;
+        }
+        var count = command.ExecuteNonQuery();
+        return count > 0;
+    }
+
+    public static bool InsertPresent(OleDbConnection conn, string openid, string gift, OleDbTransaction tran = null)
+    {
+        string sqlstr = @"INSERT INTO PresentList(openid,gift) ";
+        sqlstr += " values(@openid,@gift)";
+        var command = new OleDbCommand(sqlstr, conn);
+        command.Parameters.AddWithValue("@openid", openid);
+        command.Parameters.AddWithValue("@gift", gift);
         if (tran != null)
         {
             command.Transaction = tran;

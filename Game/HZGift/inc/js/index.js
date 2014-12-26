@@ -53,6 +53,13 @@ var HZGift = {
                 if (HZGift.userInfo.subscribe === true) {
                     $("div.info").children("button").prop("disabled", false).text("开始抽奖");
                 }
+                var countNum = 0;
+                if (HZGift.userInfo) {
+                    countNum = parseInt(HZGift.userInfo["lotteryChance"]) -
+                    parseInt(HZGift.userInfo["lotteryCount"]);
+                }
+
+                $("#lotteryCount").text("剩余次数:" + countNum);
             }
         });
     },

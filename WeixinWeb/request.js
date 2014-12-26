@@ -1,47 +1,49 @@
 ﻿$(function () {
-    $("#getToken").click(function () {
-        var password = prompt("请输入密码");
-        $.ajax({
-            type: "get",
-            url: "../Interface/GetAccessToken.ashx",
-            dataType: "json",
-            data: {
-                password: password
-            },
-            success: function (result) {
-                $("#token").text(result.access_token);
-            },
-            error: function (a, b, c) {
-                alert(a + b + c);
-            }
-        });
-    });
+    var container = document.getElementById('jsoneditor');
 
-    $("#customMenu").click(function () {
-        var menuValue = $("#menu").val();
-        var tokenText = $("#token").text();
+    var options = {
+        mode: 'code',
+        modes: ['code', 'form', 'text', 'tree', 'view'], // allowed modes
+        error: function (err) {
+            alert(err.toString());
+        }
+    };
+
+
+    var editor = new JSONEditor(container, options);
+
+    var resultEditor = new JSONEditor(document.getElementById('result'), {
+        mode: "tree",
+        modes: ['code', 'form', 'text', 'tree', 'view'], // allowed modes
+    })
+
+    var setResult = function (json) {
+        resultEditor.set(json);
+    }
+    
+
+    $("#sendRequest").click(function () {
+        var requestUrl = $("#url").val();
         try {
-            JSON.parse(menuValue);
+            var json = editor.get();
             $.ajax({
                 type: "post",
-                url: "../Interface/CreateMenu.ashx",
+                url: "../Interface/SendRequest.ashx",
                 dataType: "json",
                 data: {
-                    token: tokenText,
-                    menu: menuValue
+                    requestUrl: requestUrl,
+                    content: encodeURI(JSON.stringify(json))
                 },
                 success: function (result) {
-                    alert(result.errmsg);
+                    setResult(result);
                 },
                 error: function (a, b, c) {
-                    alert(a + b + c);
+                    setResult(a);
                 }
             });
         }
         catch (e) {
-            alert("菜单格式错误");
+            setResult("格式错误");
         }
     });
-
-    $("#loadPage").load("LoadPage.html");
 });

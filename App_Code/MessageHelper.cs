@@ -55,7 +55,10 @@ public class MessageHelper
                 switch(EventKey.InnerText)
                 {
                     case "HZGift":
-                        responseContent = GameHelper.GetReply(xmldoc);
+                        responseContent = GameHelper.GetLotteryReply(xmldoc);
+                        break;
+                    case "HZGiftList":
+                        responseContent = GameHelper.GetGiftListReply(xmldoc);
                         break;
 
                 }
