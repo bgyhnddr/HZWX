@@ -15,7 +15,7 @@
     var resultEditor = new JSONEditor(document.getElementById('result'), {
         mode: "tree",
         modes: ['code', 'form', 'text', 'tree', 'view'], // allowed modes
-    })
+    });
 
     var setResult = function (json) {
         resultEditor.set(json);

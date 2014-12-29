@@ -9,15 +9,23 @@ public class WXHandler : IHttpHandler
 
     public void ProcessRequest(HttpContext context)
     {
-        string postString = string.Empty;
-        using (System.IO.Stream stream = context.Request.InputStream)
-        {
-            Byte[] postBytes = new Byte[stream.Length];
-            stream.Read(postBytes, 0, (Int32)stream.Length);
-            postString = Encoding.UTF8.GetString(postBytes);
-        }
+        //认证用
+        //if(WXCheck.CheckSignature(context))
+        //{
+        //    context.Response.Write(context.Request.Params["echostr"]);
+        //    context.Response.End();
+        //}
+
+        //平时用
         if (context.Request.HttpMethod.ToUpper() == "POST")
         {
+            string postString = string.Empty;
+            using (System.IO.Stream stream = context.Request.InputStream)
+            {
+                Byte[] postBytes = new Byte[stream.Length];
+                stream.Read(postBytes, 0, (Int32)stream.Length);
+                postString = Encoding.UTF8.GetString(postBytes);
+            }
             if (WXCheck.CheckSignature(context))
             {
                 Handle(postString);

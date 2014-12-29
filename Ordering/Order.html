@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>OrderFood</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="build/css/icons.css" rel="stylesheet" />
+    <link href="build/css/af.ui.css" rel="stylesheet" />
+
+    <script type="text/javascript" charset="utf-8" src="appframework.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="plugins/af.actionsheet.js"></script>
+    <script type="text/javascript" charset="utf-8" src="plugins/af.css3animate.js"></script>
+    <script type="text/javascript" charset="utf-8" src="plugins/af.passwordBox.js"></script>
+    <script type="text/javascript" charset="utf-8" src="plugins/af.scroller.js"></script>
+    <script type="text/javascript" charset="utf-8" src="plugins/af.selectBox.js"></script>
+    <script type="text/javascript" charset="utf-8" src="plugins/af.touchEvents.js"></script>
+    <script type="text/javascript" charset="utf-8" src="plugins/af.touchLayer.js"></script>
+    <script type="text/javascript" charset="utf-8" src="plugins/af.popup.js"></script>
+    <script type="text/javascript" charset="utf-8" src="ui/appframework.ui.js"></script>
+    <script type="text/javascript" charset="utf-8" src="ui/transitions/fade.js"></script>
+    <script type="text/javascript" charset="utf-8" src="ui/transitions/flip.js"></script>
+    <script type="text/javascript" charset="utf-8" src="ui/transitions/pop.js"></script>
+    <script type="text/javascript" charset="utf-8" src="ui/transitions/slide.js"></script>
+    <script type="text/javascript" charset="utf-8" src="ui/transitions/slideDown.js"></script>
+    <script type="text/javascript" charset="utf-8" src="ui/transitions/slideUp.js"></script>
+    <script type="text/javascript" charset="utf-8" src="plugins/af.slidemenu.js"></script>
+    <script type="text/javascript" charset="utf-8" src="plugins/af.8tiles.js"></script>
+    
+    
+    <link href="plugins/css/appframework.css" rel="stylesheet" />
+
+    <script>
+
+        $.ui.autoLaunch = false;
+        function loadedPanel(what) {
+            //We are going to set the badge as the number of li elements inside the target
+
+            console.log("loaded " + what.id);
+        }
+
+
+        function unloadedPanel(what) {
+            console.log("unloaded " + what.id);
+        }
+        if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+            var script = document.createElement("script");
+            script.src = "plugins/af.desktopBrowsers.js";
+            var tag = $("head").append(script);
+            //$.os.desktop=true;
+        }
+
+        //  $.feat.nativeTouchScroll=true;
+        $(document).ready(function () {
+          
+            $.ui.launch();
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="afui">
+        <div id="header">
+        </div>
+        <div id="content">
+            <div id="page_main" class="panel" data-load="loadedPanel" data-header="page_main_header" data-footer="main_footer">
+                <h2>SDG</h2>
+            </div>
+            <div id="page_list" class="panel" data-load="loadedPanel" data-header="page_list_header" data-footer="main_footer">
+                <h2>SDG</h2>
+            </div>
+        </div>
+
+
+    </div>
+
+    <header id="page_main_header">
+        <h1>点餐列表</h1>
+        <a id="addOrder" class="button icon add" style="float:right">Button</a>
+    </header>
+
+    <header id="page_list_header">
+        <a class='backButton button'>Back</a>
+        <h1>点餐列表</h1>
+        <a id="refreshList" class="button icon refresh" style="float:right">Button</a>
+    </header>
+
+    <footer id='main_footer'>
+        <a href="#page_main" class='icon home pressed'>Home</a>
+        <a href="#page_list" class="icon database">Trans</a>
+    </footer>
+</body>
+</html>
