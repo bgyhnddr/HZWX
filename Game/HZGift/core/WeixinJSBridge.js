@@ -36,8 +36,7 @@
     addContact: function (opts, callback) {
         WXJS.bridgeReady(function () {
             var k = "";
-            for (var key in WeixinJSBridge)
-            {
+            for (var key in WeixinJSBridge) {
                 k += key + ",";
             }
             alert(k);
@@ -45,6 +44,19 @@
                 if ($.isFunction(callback)) {
                     callback(e);
                 }
+            });
+        });
+    },
+    hideOptionMenu: function () {
+        WXJS.bridgeReady(function () {
+            WeixinJSBridge.call('hideOptionMenu');
+        });
+    },
+    imagePreview: function (urls, current) {
+        WXJS.bridgeReady(function () {
+            WeixinJSBridge.invoke("imagePreview", {
+                "urls": urls,
+                "current": current
             });
         });
     },
@@ -66,3 +78,4 @@
         });
     }
 }
+

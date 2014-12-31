@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.OleDb;
+using System.Configuration;
 
 /// <summary>
 /// Global 的摘要说明
@@ -10,6 +11,7 @@ using System.Data.OleDb;
 public class Global
 {
     public const string OAuth2URL = "https://open.weixin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri={1}&response_type=code&scope={2}&state={3}#wechat_redirect";
+    public static string OrderFoodConnStr = ConfigurationManager.ConnectionStrings["OrderFoodConnStr"].ConnectionString; 
 
 	public Global()
 	{

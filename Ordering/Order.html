@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="build/css/icons.css" rel="stylesheet" />
     <link href="build/css/af.ui.css" rel="stylesheet" />
+    <link href="order.css" rel="stylesheet" />
 
     <script type="text/javascript" charset="utf-8" src="appframework.js"></script>
 
@@ -30,7 +31,7 @@
     <script type="text/javascript" charset="utf-8" src="plugins/af.slidemenu.js"></script>
     <script type="text/javascript" charset="utf-8" src="plugins/af.8tiles.js"></script>
     
-    
+
     <link href="plugins/css/appframework.css" rel="stylesheet" />
 
     <script>
@@ -38,7 +39,6 @@
         $.ui.autoLaunch = false;
         function loadedPanel(what) {
             //We are going to set the badge as the number of li elements inside the target
-
             console.log("loaded " + what.id);
         }
 
@@ -52,7 +52,12 @@
             var tag = $("head").append(script);
             //$.os.desktop=true;
         }
-        $.ui.setBackButtonText('返回');
+
+        $.ui.useOSThemes=false
+    </script>
+    <script type="text/javascript" charset="utf-8" src="../Game/HZGift/core/WeixinJSBridge.js"></script>
+    <script>
+        WXJS.hideOptionMenu();
     </script>
     <script src="order.js"></script>
 </head>
@@ -62,19 +67,24 @@
         <div id="header">
         </div>
         <div id="content">
-            <div id="page_main" class="panel" data-load="loadedPanel" data-header="page_main_header" data-footer="main_footer">
+            <div id="page_main" class="panel" data-load="order.load.page_main_load" data-header="page_main_header" data-footer="main_footer">
                 <a id="addOrder" class="button icon add block">点餐</a>
-                <ul id="foodList" class="list">
+                <ul id="foodList" class="list"></ul>
+            </div>
+            <div id="page_list" class="panel" data-load="loadedPanel" data-header="page_list_header" data-footer="main_footer">
+                <ul class="list">
                     <li style="text-align:center">
-                    <h4>无点餐</h4>
+                        <h4>暂无</h4>
                     </li>
                 </ul>
             </div>
-            <div id="page_list" class="panel" data-load="loadedPanel" data-header="page_list_header" data-footer="main_footer">
-                <h2>SDG</h2>
-            </div>
-            <div id="page_detail" data-load="order.load.page_detail_load" class="panel" data-load="loadedPanel" data-header="page_detail_header" data-footer="main_footer">
-                <h2>Detail</h2>
+            <div id="page_detail" data-load="order.load.page_detail_load" class="panel" data-header="page_detail_header" data-footer="main_footer">
+                <div class="input-group">
+                    <label>餐名</label><input id="food" type="text" placeholder="店名+餐名">
+                    <label>数量</label><input id="count" type="number" placeholder="输入份数">
+                    <label>价格</label><input id="price" type="number" placeholder="输入总金额">
+                    <a id="menu" class="button icon menu block">菜单</a>
+                </div>
             </div>
         </div>
 
@@ -83,7 +93,7 @@
 
     <header id="page_main_header">
         <h1>我的餐表</h1>
-        <a class="button icon refresh" style="float:right">刷新</a>
+        <a id="refreshOrder" class="button icon refresh" style="float:right">刷新</a>
     </header>
 
     <header id="page_list_header">
@@ -94,12 +104,12 @@
     <header id="page_detail_header">
         <a class='backButton button'>返回</a>
         <h1>点餐列表</h1>
-        <a id="confirm" class="button icon check" style="float:right">确认</a>
+        <a id="confirmFood" class="button icon check" style="float:right">确认</a>
     </header>
 
     <footer id='main_footer'>
-        <a href="#page_main" class='icon home pressed'>Home</a>
-        <a href="#page_list" class="icon database">Trans</a>
+        <a href="#page_main" class='icon home pressed'>点餐</a>
+        <a href="#page_list" class="icon database">统计</a>
     </footer>
 </body>
 </html>

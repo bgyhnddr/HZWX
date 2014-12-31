@@ -1,0 +1,15 @@
+﻿@-webkit-keyframes focus /* Opera */
+{
+    0% {
+        background-color: #ffffff;
+    }
+
+    100% {
+        background-color: #C1FDB0;
+    }
+}
+
+input:focus {
+    -webkit-animation: focus 1s; /* Safari and Chrome */
+    background-color: #C1FDB0 !important;
+}

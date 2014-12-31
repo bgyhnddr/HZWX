@@ -17,19 +17,19 @@ public class LOG
         File.AppendAllText(HttpContext.Current.Server.MapPath("~") + "\\log.txt", "\r\n" + log + "\r\n", Encoding.UTF8);
     }
 
-    public static void SaveAccessToken(string obj)
+    public static void SaveAccessToken(string obj, string url = "")
     {
         var o = JsonConvert.DeserializeObject<JObject>(obj);
         o["getTime"] = DateTime.Now.ToString();
         obj = JsonConvert.SerializeObject(o);
-        File.WriteAllText(HttpContext.Current.Server.MapPath("~") + "\\access_token", obj, Encoding.UTF8);
+        File.WriteAllText(HttpContext.Current.Server.MapPath("~") + url + "\\access_token", obj, Encoding.UTF8);
     }
 
-    public static string GetSavedAccessToken()
+    public static string GetSavedAccessToken(string url = "")
     {
         try
         {
-            var obj = File.ReadAllText(HttpContext.Current.Server.MapPath("~") + "\\access_token", Encoding.UTF8);
+            var obj = File.ReadAllText(HttpContext.Current.Server.MapPath("~") + url + "\\access_token", Encoding.UTF8);
             var o = JsonConvert.DeserializeObject<JObject>(obj);
             var date = DateTime.Parse(o["getTime"].ToString());
             var expires = int.Parse(o["expires_in"].ToString()) * 3 / 4;
@@ -49,4 +49,17 @@ public class LOG
             return string.Empty;
         }
     }
+
+    public static APPIS GetAppIS()
+    {
+        var obj = File.ReadAllText(HttpContext.Current.Server.MapPath("~") + "\\Ordering\\APPIS", Encoding.UTF8);
+        var appIS = JsonConvert.DeserializeObject<APPIS>(obj);
+        return appIS;
+    }
+}
+
+public class APPIS
+{
+    public string appid;
+    public string secret;
 }

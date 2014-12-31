@@ -63,9 +63,9 @@ public class WXCheck
         return content;
     }
 
-    static public string GetAccessTokenString()
+    static public string GetAccessTokenString(string url="")
     {
-        var token = LOG.GetSavedAccessToken();
+        var token = LOG.GetSavedAccessToken(url);
         if (string.IsNullOrWhiteSpace(token))
         {
             var appid = ConfigurationManager.AppSettings["appid"].ToString();
