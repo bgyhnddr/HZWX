@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5e4952f0-f171-477c-b30b-7a2ee2f300b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App_Code/Global.cs" afterPath="$PROJECT_DIR$/App_Code/Global.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App_Code/LOG.cs" afterPath="$PROJECT_DIR$/App_Code/LOG.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ordering/Order.html" afterPath="$PROJECT_DIR$/Ordering/Order.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/App_Code/WXCheck.cs" afterPath="$PROJECT_DIR$/App_Code/WXCheck.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Web.config" afterPath="$PROJECT_DIR$/Web.config" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/HZGift/core/WeixinJSBridge.js" afterPath="$PROJECT_DIR$/Game/HZGift/core/WeixinJSBridge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/access_token" afterPath="$PROJECT_DIR$/access_token" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ordering/appframework.js" afterPath="$PROJECT_DIR$/Ordering/appframework.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log.txt" afterPath="$PROJECT_DIR$/log.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ordering/order.js" afterPath="$PROJECT_DIR$/Ordering/order.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="5e4952f0-f171-477c-b30b-7a2ee2f300b9" name="Default" comment="" />
     <ignored path="HZWX.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Order.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Order.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Ordering/Order.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5864055" vertical-offset="1144" max-vertical-offset="2299">
-              <caret line="87" column="18" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
+            <state vertical-scroll-proportion="-4.535714" vertical-offset="1431" max-vertical-offset="2299">
+              <caret line="82" column="86" selection-start-line="82" selection-start-column="86" selection-end-line="82" selection-end-column="86" />
               <folding>
                 <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -60,10 +48,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WeixinJSBridge.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WeixinJSBridge.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Game/HZGift/core/WeixinJSBridge.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="738" max-vertical-offset="1653">
+            <state vertical-scroll-proportion="0.66071427" vertical-offset="738" max-vertical-offset="1653">
               <caret line="70" column="17" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
               <folding>
                 <marker date="1419921808698" expanded="true" signature="1805:1816" placeholder="{&quot;tousername&quot;: &quot;gh_4de04c099266&quot;...}" />
@@ -650,13 +638,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Game/HZGift/core/WeixinJSBridge.js">
+    <entry file="file://$PROJECT_DIR$/Ordering/Order.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="738" max-vertical-offset="1653">
-          <caret line="70" column="17" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
+        <state vertical-scroll-proportion="-4.535714" vertical-offset="1431" max-vertical-offset="2299">
+          <caret line="82" column="86" selection-start-line="82" selection-start-column="86" selection-end-line="82" selection-end-column="86" />
           <folding>
-            <marker date="1419921808698" expanded="true" signature="1805:1816" placeholder="{&quot;tousername&quot;: &quot;gh_4de04c099266&quot;...}" />
-            <marker date="1419921808698" expanded="true" signature="2066:2142" placeholder="{...}" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -671,12 +658,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Ordering/Order.html">
+    <entry file="file://$PROJECT_DIR$/Game/HZGift/core/WeixinJSBridge.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5864055" vertical-offset="1144" max-vertical-offset="2299">
-          <caret line="87" column="18" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.66071427" vertical-offset="738" max-vertical-offset="1653">
+          <caret line="70" column="17" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
           <folding>
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1419921808698" expanded="true" signature="1805:1816" placeholder="{&quot;tousername&quot;: &quot;gh_4de04c099266&quot;...}" />
+            <marker date="1419921808698" expanded="true" signature="2066:2142" placeholder="{...}" />
           </folding>
         </state>
       </provider>
