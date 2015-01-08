@@ -56,6 +56,10 @@ public class LOG
         var appIS = JsonConvert.DeserializeObject<APPIS>(obj);
         return appIS;
     }
+    public static void SaveSuiteTicket(string obj, string url = "")
+    {
+        File.WriteAllText(HttpContext.Current.Server.MapPath("~") + url + "\\suite_ticket", obj, Encoding.UTF8);
+    }
 }
 
 public class APPIS

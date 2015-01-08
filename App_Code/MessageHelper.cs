@@ -21,7 +21,7 @@ public class MessageHelper
     {
         string responseContent = "";
         XmlDocument xmldoc = new XmlDocument();
-        xmldoc.Load(new System.IO.MemoryStream(System.Text.Encoding.GetEncoding("GB2312").GetBytes(postStr)));
+        xmldoc.Load(new System.IO.MemoryStream(System.Text.Encoding.UTF8.GetBytes(postStr)));
         XmlNode MsgType = xmldoc.SelectSingleNode("/xml/MsgType");
         if (MsgType != null)
         {

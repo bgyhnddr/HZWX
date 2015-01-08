@@ -1,98 +1,16 @@
 ﻿
-{"errcode":40029,"errmsg":"invalid code"}
+receive time:2015/1/4 11:15:31
 
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
+http://localhost:1760/Receive.ashx?msg_signature=bbdf49472e1a6440b7eecddf15eff914c1d0b70d&timestamp=1420341282&nonce=821499067
 
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
+receive time:2015/1/4 11:16:58
 
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
+http://localhost:1760/Receive.ashx?msg_signature=bbdf49472e1a6440b7eecddf15eff914c1d0b70d&timestamp=1420341282&nonce=821499067
 
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
+receive time:2015/1/4 11:17:34
 
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
+http://localhost:1760/Receive.ashx?msg_signature=bbdf49472e1a6440b7eecddf15eff914c1d0b70d&timestamp=1420341282&nonce=821499067
 
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
+receive time:2015/1/4 11:18:08
 
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
-
-{"data":{"errcode":60111,"errmsg":"userid not found"}}
+http://localhost:1760/Receive.ashx?msg_signature=bbdf49472e1a6440b7eecddf15eff914c1d0b70d&timestamp=1420341282&nonce=821499067
