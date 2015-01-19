@@ -20,18 +20,15 @@ $(document).ready(function () {
 
 var order = {
     userInfo: {},
-    currentOrder: null,
     load: {
         page_main_load: function () {
         },
         page_detail_load: function () {
             $.ui.toggleNavMenu(false);
-            order.setOrderDetail();
         }
     },
     bindEvents: function () {
         addOrder.addEventListener("touchstart", function (ev) {
-            order.currentOrder = null;
             $.ui.loadContent("page_detail");
         });
 
@@ -48,7 +45,7 @@ var order = {
         });
 
         confirmFood.addEventListener("touchstart", function (ev) {
-            order.saveOrderDetail(function (result) {
+            order.addOrder(function (result) {
                 if (result) {
                     order.getOrder(function (list) {
                         order.updateOrderList(list);
@@ -117,7 +114,6 @@ var order = {
                 var lia = $('<a><h2>' + val["OrderFood"] + '</h2><p>数量:' + val["Number"] + '</p><p>价格:' + val["Money"] + '</p></a>');
                 lia.data("order", val);
                 lia[0].addEventListener("touchstart", function (ev) {
-                    order.currentOrder = $(ev.currentTarget).data("order");
                     $.ui.loadContent("page_detail");
                 }, false);
                 li.append(lia);
@@ -125,33 +121,20 @@ var order = {
             });
         }
     },
-    setOrderDetail: function () {
-        if (order.currentOrder) {
-            food.value = order.currentOrder["OrderFood"];
-            count.value = order.currentOrder["Number"];
-            price.value = order.currentOrder["Money"];
-        }
-        else {
-            food.value = "";
-            count.value = "";
-            price.value = "";
-        }
-    },
-    saveOrderDetail: function (callback) {
-        if (!order.currentOrder) {
-            order.currentOrder = new Object();
-        }
-        order.currentOrder["Name"] = order.userInfo.name;
-        order.currentOrder["OrderFood"] = food.value;
-        order.currentOrder["Number"] = count.value;
-        order.currentOrder["Money"] = price.value;
+    addOrder: function (callback) {
+        //if (!order.currentOrder) {
+        //    order.currentOrder = new Object();
+        //}
+        //order.currentOrder["Name"] = order.userInfo.name;
+        //order.currentOrder["OrderFood"] = food.value;
+        //order.currentOrder["Money"] = price.value;
         $.ui.blockUI(0.5);
         $.ajax({
             type: "post",
             url: "ashx/UpdateOrder.ashx",
             dataType: "json",
             data: {
-                order: JSON.stringify(order.currentOrder)
+                order: JSON.stringify({"Name":"","Store":"","Money":""})
             },
             success: function (result) {
                 $.ui.unblockUI();

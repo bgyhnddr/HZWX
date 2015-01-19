@@ -14,7 +14,7 @@ public class WebSocekt : IHttpHandler {
         if (context.IsWebSocketRequest)
         {
             var task = new Task(new Action(() => { }));
-            context.AcceptWebSocketRequest(task);
+            context.AcceptWebSocketRequest(ProcessChat);
         } 
     }
 

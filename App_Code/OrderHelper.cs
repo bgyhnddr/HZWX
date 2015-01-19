@@ -84,13 +84,14 @@ public class OrderHelper
             var jObj = JsonConvert.DeserializeObject<JObject>(order);
             if (jObj["id"] == null)
             {
-                var sql = "INSERT INTO [orderfood].[dbo].[OrderList]([Name],[Type],[OrderFood],[Number],[Money],[Date]) VALUES (@Name,@Type,@OrderFood,@Number,@Money,@Date)";
+                var sql = "INSERT INTO [orderfood].[dbo].[OrderList]([Name],[Type],[Store],[OrderFood],[Money],[Comment],[Date]) VALUES (@Name,@Type,@Store,@OrderFood,@Money,@Comment,@Date)";
                 var comm = new SqlCommand(sql, conn, tran);
                 comm.Parameters.AddWithValue("@Name", jObj["Name"].ToString());
                 comm.Parameters.AddWithValue("@Type", "午餐");
+                comm.Parameters.AddWithValue("@Store", jObj["Store"]);
                 comm.Parameters.AddWithValue("@OrderFood", jObj["OrderFood"].ToString());
-                comm.Parameters.AddWithValue("@Number", int.Parse(jObj["Number"].ToString()));
                 comm.Parameters.AddWithValue("@Money", int.Parse(jObj["Money"].ToString()));
+                comm.Parameters.AddWithValue("@Comment", int.Parse(jObj["Comment"].ToString()));
                 comm.Parameters.AddWithValue("@Date", DateTime.Now);
                 comm.ExecuteNonQuery();
             }
@@ -98,15 +99,17 @@ public class OrderHelper
             {
                 var sql = @"UPDATE [orderfood].[dbo].[OrderList]
                             SET [Name] = @Name
+                               ,[Store] = @Store
                                ,[OrderFood] = @OrderFood
-                               ,[Number] = @Number
                                ,[Money] = @Money
+                               ,[Comment] = @Comment
                                WHERE id=@id";
                 var comm = new SqlCommand(sql, conn, tran);
                 comm.Parameters.AddWithValue("@Name", jObj["Name"].ToString());
+                comm.Parameters.AddWithValue("@Store", jObj["Store"]);
                 comm.Parameters.AddWithValue("@OrderFood", jObj["OrderFood"].ToString());
-                comm.Parameters.AddWithValue("@Number", int.Parse(jObj["Number"].ToString()));
                 comm.Parameters.AddWithValue("@Money", int.Parse(jObj["Money"].ToString()));
+                comm.Parameters.AddWithValue("@Comment", int.Parse(jObj["Comment"].ToString()));
                 comm.Parameters.AddWithValue("@id", int.Parse(jObj["id"].ToString()));
                 comm.ExecuteNonQuery();
             }
@@ -126,6 +129,12 @@ public class OrderHelper
             conn.Close();
         }
     }
+
+    public static string GetMenu()
+    {
+
+    }
+
 
     public static SqlConnection GetConnection()
     {
