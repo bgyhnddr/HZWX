@@ -27,15 +27,26 @@
     </style>
 </head>
 <body>
-    <div>
-        <h2>发送http/https请求</h2>
-        <div class="outer">
-            <input id="url" type="url" placeholder="请求地址" value="" class="text" style="width:498px;" />
-        </div>
-        <div id="jsoneditor"></div>
-        <input id="sendRequest" type="button" value="发送请求" />
+    <table>
+        <tr>
+            <td>
+                <h2>发送http/https请求</h2>
+                <div class="outer">
+                    <input id="url" type="url" placeholder="请求地址" value="" class="text" style="width:498px;" />
+                </div>
+                <div id="jsoneditor"></div>
+                <input id="sendRequest" type="button" value="发送请求" />
 
-        <div id="result" style="width:500px;height:500px;"></div>
-    </div>
+                <div id="result" style="width:500px;height:500px;"></div>
+            </td>
+            <td valign="top">
+                <div style="width :100px" >
+                    <button id="menu">设置菜单</button>
+                    <button id="getMenu">获取菜单</button>
+                    <button id="userList">用户列表</button>
+                </div>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

@@ -46,4 +46,16 @@
             setResult("格式错误");
         }
     });
+
+    $("#menu").click(function () {
+        $("#url").val("https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN");
+    });
+
+    $("#userList").click(function () {
+        $("#url").val("https://api.weixin.qq.com/cgi-bin/user/get?access_token=ACCESS_TOKEN");
+    });
+
+    $("#getMenu").click(function () {
+        $("#url").val("https://api.weixin.qq.com/cgi-bin/get_current_selfmenu_info?access_token=ACCESS_TOKEN");
+    });
 });

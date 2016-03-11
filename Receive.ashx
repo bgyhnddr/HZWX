@@ -51,9 +51,6 @@ public class ReceiveTicket : IHttpHandler {
 
     public static bool Check(string signature, string timestamp, string nonce, string postString,ref string xmlString)
     {
-
-
-
         string sToken = "weixin";
         string sCorpID = "tjb1f5ea1c41b16c93";
         string sEncodingAESKey = "D792D9PqTyjXSFSVCKNTAMhaJH12UszbpGv329fxldX";

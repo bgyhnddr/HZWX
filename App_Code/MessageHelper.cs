@@ -52,7 +52,7 @@ public class MessageHelper
         switch(Event.InnerText)
         {
             case "CLICK":
-                switch(EventKey.InnerText)
+                switch (EventKey.InnerText)
                 {
                     case "HZGift":
                         responseContent = GameHelper.GetLotteryReply(xmldoc);
@@ -60,7 +60,6 @@ public class MessageHelper
                     case "HZGiftList":
                         responseContent = GameHelper.GetGiftListReply(xmldoc);
                         break;
-
                 }
                 break;
             case "subscribe":

@@ -12,29 +12,48 @@ menu:
 {
   "button": [
     {
-      "type": "view",
-      "name": "点餐",
-      "url": "http://112.124.112.166/Ordering/"
+      "name": "用户中心",
+      "sub_button": {
+        "list": [
+          {
+            "type": "view",
+            "name": "绑定查印章平台",
+            "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxff8aa63b127ef179&redirect_uri=http%3A%2F%2Fwww.chayinzhang.com%2FWX%2FBind%2Findex.html&response_type=code&scope=snsapi_base#wechat_redirect"
+          },
+          {
+            "type": "click",
+            "name": "我的印章",
+            "key": "MySeal"
+          },
+          {
+            "type": "click",
+            "name": "平台Q&A",
+            "key": "QA"
+          }
+        ]
+      }
     },
     {
-      "name": "菜单",
-      "sub_button": [
-        {
-          "type": "view",
-          "name": "WeixinJSBridge",
-          "url": "http://112.124.112.166/weixintest/WeixinWeb/WeixinJSBridge.html"
-        },
-        {
-          "type": "click",
-          "name": "抽奖活动",
-          "key": "HZGift"
-        },
-        {
-          "type": "click",
-          "name": "我的中奖记录",
-          "key": "HZGiftList"
-        }
-      ]
+      "name": "查印章",
+      "sub_button": {
+        "list": [
+          {
+            "type": "click",
+            "name": "印章查询",
+            "key": "Search"
+          },
+          {
+            "type": "scancode_waitmsg",
+            "name": "扫一扫",
+            "key": "scan_base"
+          }
+        ]
+      }
+    },
+    {
+      "type": "view",
+      "name": "印章申请",
+      "url": "http://www.chayinzhang.com/wx/sealapply/index.html"
     }
   ]
 }

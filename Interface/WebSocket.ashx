@@ -11,11 +11,6 @@ using System.Threading;
 public class WebSocekt : IHttpHandler {
     
     public void ProcessRequest (HttpContext context) {
-        if (context.IsWebSocketRequest)
-        {
-            var task = new Task(new Action(() => { }));
-            context.AcceptWebSocketRequest(task);
-        } 
     }
 
     private async Task ProcessChat(AspNetWebSocketContext context)
